@@ -121,6 +121,7 @@ animations = [{
 }]
 
 [node name="hello_does_this_work" type="Node2D"]
+scale = Vector2(10, 10)
 
 [node name="Hat" type="AnimatedSprite2D" parent="."]
 z_index = 1
