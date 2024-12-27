@@ -3,7 +3,7 @@ extends Area2D
 signal picked_up
 
 func _ready() -> void:
-	# Connect the 'body_entered' signal to the '_on_body_entered' method using the correct syntax
+	
 	if not is_connected("body_entered", Callable(self, "_on_body_entered")):
 		connect("body_entered", Callable(self, "_on_body_entered"))
 

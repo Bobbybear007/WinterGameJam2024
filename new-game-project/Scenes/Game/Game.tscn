@@ -79,12 +79,12 @@ position_smoothing_enabled = true
 [node name="Noodles" parent="Stuff" instance=ExtResource("6_gjttt")]
 position = Vector2(24, -56)
 
+[node name="Screwdriver" parent="Stuff" instance=ExtResource("5_grny6")]
+position = Vector2(8, -56)
+
+[node name="ToiletPaper" parent="Stuff" instance=ExtResource("6_qt4k2")]
+position = Vector2(-8, -56)
+
 [node name="Enemy" parent="." instance=ExtResource("6_3li37")]
 position = Vector2(-149, -88)
 sus_time = 7
-
-[node name="Screwdriver" parent="." instance=ExtResource("5_grny6")]
-position = Vector2(8, -56)
-
-[node name="ToiletPaper" parent="." instance=ExtResource("6_qt4k2")]
-position = Vector2(-8, -56)
