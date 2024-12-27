@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var sus_time = 4
+@export var short_sus_time = 2
 @export var speed = 25
 var player_chase = false
 var player = null
@@ -11,24 +12,27 @@ func _physics_process(delta: float) -> void:
 		position += (player.position - position) / speed
 
 func _on_detection_area_body_entered(body: Node2D) -> void:
-	player = body
-	# Check if this is the first time the player is detected
-	if first_detection:
-		# Start a delayed chase coroutine
-		call_deferred("start_chase")
-	else:
-		player_chase = true
+	if body is CharacterBody2D:
+		player = body
+		if player.has_pickup_item():
+			sus_time = short_sus_time
+			print("Player has picked up the object. Using short sus time: ", sus_time)
+		else:
+			sus_time = 4
+			print("Player has not picked up the object. Using regular sus time: ", sus_time)
+		if first_detection:
+			call_deferred("start_chase")
+		else:
+			player_chase = true
 
 func _on_detection_area_body_exited(body: Node2D) -> void:
-	player = null
-	player_chase = false
+	if body is CharacterBody2D:
+		player = null
+		player_chase = false
 
 func start_chase() -> void:
-	# Create a timer
 	var timer = get_tree().create_timer(sus_time)
-	# Wait for the timer to timeout
 	await timer.timeout
 	if player != null:
 		player_chase = true
-	# Set first_detection to false after the first chase starts
 	first_detection = false
