@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cmbgf8fvj4p1j" path="res://Sprites/Player/PlayerJacketSpriteSheet.png" id="4_v531t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0g2ll"]
-radius = 2.75
+radius = 4.625
 height = 28.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0bge6"]

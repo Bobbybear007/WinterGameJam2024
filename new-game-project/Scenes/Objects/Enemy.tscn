@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cfmyw8nekaytx"]
 
-[ext_resource type="Script" path="res://Scenes/Objects/enemy.gd" id="1_2edp1"]
+[ext_resource type="Script" path="res://_Scripts/Enemy/enemy.gd" id="1_2edp1"]
 [ext_resource type="Texture2D" uid="uid://8n6hyqfxymrq" path="res://Sprites/icon/BadIcon.png" id="1_7ww3q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_joxw3"]
@@ -10,6 +10,8 @@ size = Vector2(22, 22)
 radius = 54.0
 
 [node name="Enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_2edp1")
 speed = 60
 
