@@ -1,6 +1,37 @@
-[gd_scene load_steps=9 format=3 uid="uid://rjeirjy7xmei"]
+[gd_scene load_steps=19 format=3 uid="uid://rjeirjy7xmei"]
 
 [ext_resource type="Texture2D" uid="uid://cxowdlfwalm0n" path="res://Textures/Sprites/Player/PlayerBaseSpriteSheet.png" id="1_6c6qc"]
+[ext_resource type="Texture2D" uid="uid://b27axkf8tefyp" path="res://Textures/Sprites/Player/PlayerHatSpriteSheet.png" id="1_wamgl"]
+[ext_resource type="Texture2D" uid="uid://cmbgf8fvj4p1j" path="res://Textures/Sprites/Player/PlayerJacketSpriteSheet.png" id="3_ll8rh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bge6"]
+atlas = ExtResource("1_wamgl")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4uv4o"]
+atlas = ExtResource("1_wamgl")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gniq"]
+atlas = ExtResource("1_wamgl")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mgh2j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bge6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4uv4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gniq")
+}],
+"loop": true,
+"name": &"hat_idle",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k0p3x"]
 atlas = ExtResource("1_6c6qc")
@@ -60,11 +91,50 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmx65"]
+atlas = ExtResource("3_ll8rh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjxgt"]
+atlas = ExtResource("3_ll8rh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6vub"]
+atlas = ExtResource("3_ll8rh")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_smdjd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmx65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjxgt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6vub")
+}],
+"loop": true,
+"name": &"jacket_idle",
+"speed": 5.0
+}]
+
 [node name="hello_does_this_work" type="Node2D"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Hat" type="AnimatedSprite2D" parent="."]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_mgh2j")
+animation = &"hat_idle"
+autoplay = "hat_idle"
+
+[node name="PlayerBase" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bvgsr")
-animation = &"player_move"
-autoplay = "player_move"
-frame = 2
-frame_progress = 0.513556
+animation = &"player_idle"
+autoplay = "player_idle"
+
+[node name="Jacket" type="AnimatedSprite2D" parent="."]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_smdjd")
+animation = &"jacket_idle"
+autoplay = "jacket_idle"
