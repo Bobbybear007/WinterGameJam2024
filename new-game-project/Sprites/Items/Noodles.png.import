@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmbgf8fvj4p1j"
-path="res://.godot/imported/PlayerJacketSpriteSheet.png-278eb975b36078f3cc5bf7ec25d77a40.ctex"
+uid="uid://b4b3qga1e8aga"
+path="res://.godot/imported/Noodles.png-86419c250789f4e59b7893a2f2874cf4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Sprites/Player/PlayerJacketSpriteSheet.png"
-dest_files=["res://.godot/imported/PlayerJacketSpriteSheet.png-278eb975b36078f3cc5bf7ec25d77a40.ctex"]
+source_file="res://Sprites/Items/Noodles.png"
+dest_files=["res://.godot/imported/Noodles.png-86419c250789f4e59b7893a2f2874cf4.ctex"]
 
 [params]
 

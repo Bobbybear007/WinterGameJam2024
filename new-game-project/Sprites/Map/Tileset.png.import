@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b27axkf8tefyp"
-path="res://.godot/imported/PlayerHatSpriteSheet.png-462fa875914b66f230bfc005bca75abc.ctex"
+uid="uid://wcmhoixslwxj"
+path="res://.godot/imported/Tileset.png-a876d67e2deb1d54825fb54b28bede65.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Sprites/Player/PlayerHatSpriteSheet.png"
-dest_files=["res://.godot/imported/PlayerHatSpriteSheet.png-462fa875914b66f230bfc005bca75abc.ctex"]
+source_file="res://Sprites/Map/Tileset.png"
+dest_files=["res://.godot/imported/Tileset.png-a876d67e2deb1d54825fb54b28bede65.ctex"]
 
 [params]
 

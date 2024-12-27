@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wcmhoixslwxj"
-path="res://.godot/imported/Tileset.png-d017adcba33540c0777b6cba864f49f4.ctex"
+uid="uid://cmbgf8fvj4p1j"
+path="res://.godot/imported/PlayerJacketSpriteSheet.png-ddc6a5d423475b8b4f14d146236e6367.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Sprites/Map/Tileset.png"
-dest_files=["res://.godot/imported/Tileset.png-d017adcba33540c0777b6cba864f49f4.ctex"]
+source_file="res://Sprites/Player/PlayerJacketSpriteSheet.png"
+dest_files=["res://.godot/imported/PlayerJacketSpriteSheet.png-ddc6a5d423475b8b4f14d146236e6367.ctex"]
 
 [params]
 

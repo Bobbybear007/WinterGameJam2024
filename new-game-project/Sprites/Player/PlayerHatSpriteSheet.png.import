@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dithi8wc248my"
-path="res://.godot/imported/Screwdriver.png-99ec7c9bbd75d661232b5b03c97fd008.ctex"
+uid="uid://b27axkf8tefyp"
+path="res://.godot/imported/PlayerHatSpriteSheet.png-e00edf88f0bcc28c416bcfead33b9f4e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Sprites/Items/Screwdriver.png"
-dest_files=["res://.godot/imported/Screwdriver.png-99ec7c9bbd75d661232b5b03c97fd008.ctex"]
+source_file="res://Sprites/Player/PlayerHatSpriteSheet.png"
+dest_files=["res://.godot/imported/PlayerHatSpriteSheet.png-e00edf88f0bcc28c416bcfead33b9f4e.ctex"]
 
 [params]
 
