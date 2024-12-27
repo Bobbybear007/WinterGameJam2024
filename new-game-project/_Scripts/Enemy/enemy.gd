@@ -3,6 +3,9 @@ extends CharacterBody2D
 @export var sus_time = 4
 @export var short_sus_time = 2
 @export var speed = 25
+
+
+
 var player_chase = false
 var player = null
 var first_detection = true
