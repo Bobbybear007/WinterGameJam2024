@@ -121,9 +121,11 @@ animations = [{
 }]
 
 [node name="hello_does_this_work" type="Node2D"]
+position = Vector2(-47, -24)
 scale = Vector2(10, 10)
 
 [node name="Hat" type="AnimatedSprite2D" parent="."]
+visible = false
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_mgh2j")
 animation = &"hat_idle"
