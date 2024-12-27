@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://wcmhoixslwxj" path="res://Sprites/Map/Tileset.png" id="1_o2vaq"]
 [ext_resource type="PackedScene" uid="uid://d0cktxgkxgmd3" path="res://Scenes/Objects/Player.tscn" id="1_y5b83"]
-[ext_resource type="PackedScene" uid="uid://h32nfom7afhq" path="res://Scenes/Objects/Screwdriver.tscn" id="5_grny6"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/Screwdriver.tscn" id="5_grny6"]
 [ext_resource type="PackedScene" uid="uid://cfmyw8nekaytx" path="res://Scenes/Objects/Enemy.tscn" id="6_3li37"]
-[ext_resource type="PackedScene" uid="uid://bsspxn8enisc4" path="res://Scenes/Objects/Noodles.tscn" id="6_gjttt"]
-[ext_resource type="PackedScene" uid="uid://bhe2l5q1yqmfg" path="res://Scenes/Objects/ToiletPaper.tscn" id="6_qt4k2"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/Noodles.tscn" id="6_gjttt"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/ToiletPaper.tscn" id="6_qt4k2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbbnw"]
 texture = ExtResource("1_o2vaq")
@@ -88,4 +88,3 @@ position = Vector2(-8, -56)
 [node name="Enemy" parent="." instance=ExtResource("6_3li37")]
 position = Vector2(-150, -85)
 sus_time = 7
-short_sus_time = null

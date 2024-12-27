@@ -4,15 +4,29 @@ extends CharacterBody2D
 @export var short_sus_time = 2
 @export var speed = 25
 
-
+@onready var animated_sprite = $AnimatedSprite
 
 var player_chase = false
 var player = null
 var first_detection = true
 
+func _process(delta: float) -> void:
+	handle_animation()
+
 func _physics_process(delta: float) -> void:
 	if player_chase:
 		position += (player.position - position) / speed
+
+func handle_animation() -> void:
+	if player_chase:
+		animated_sprite.play("Move")
+		if player != null:
+			if player.position.x > position.x:
+				animated_sprite.scale.x = 1
+			else:
+				animated_sprite.scale.x = -1
+	else:
+		animated_sprite.play("Idle")
 
 func _on_detection_area_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:

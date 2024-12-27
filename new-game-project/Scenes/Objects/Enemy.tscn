@@ -81,10 +81,10 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_73a0k")
 
-[node name="GuardBase" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.976563, 0.984375)
 sprite_frames = SubResource("SpriteFrames_c4hwu")
-animation = &"Idle"
+animation = &"Move"
 autoplay = "Idle"
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
