@@ -62,7 +62,7 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 			print("Player has item. Using short sus time:", sus_time)
 			call_deferred("start_chase")
 		else:
-			print("Yeah no this weirdo looks perfectly normal, no weird bulges or anything")
+			print("Yeah no this weirdo looks perfectly normal, no weird bulges or anything 😏")
 
 func _on_max_agro_range_body_exited(body: Node2D) -> void:
 	if body is CharacterBody2D:
