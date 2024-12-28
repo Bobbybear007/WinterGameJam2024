@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://me4lem075qw2"]
+
+[ext_resource type="Texture2D" uid="uid://b0lmodddm0pvv" path="res://Sprites/Map/EnvironmentalFactors/Fan.png" id="1_1ldrd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjfx7"]
+atlas = ExtResource("1_1ldrd")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fa4ab"]
+atlas = ExtResource("1_1ldrd")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nn4p"]
+atlas = ExtResource("1_1ldrd")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tmmje"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjfx7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fa4ab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nn4p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 16.0
+}]
+
+[node name="Fan" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_tmmje")
+autoplay = "default"
+frame_progress = 0.220539

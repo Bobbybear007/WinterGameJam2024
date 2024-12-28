@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cvmbcfl36jsg3"]
+[gd_scene load_steps=10 format=3 uid="uid://cvmbcfl36jsg3"]
 
 [ext_resource type="Texture2D" uid="uid://wcmhoixslwxj" path="res://Sprites/Map/Tileset.png" id="1_o2vaq"]
 [ext_resource type="PackedScene" uid="uid://d0cktxgkxgmd3" path="res://Scenes/Objects/Player.tscn" id="1_y5b83"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cfmyw8nekaytx" path="res://Scenes/Objects/Enemy.tscn" id="6_3li37"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/Noodles.tscn" id="6_gjttt"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/ToiletPaper.tscn" id="6_qt4k2"]
+[ext_resource type="PackedScene" uid="uid://me4lem075qw2" path="res://Scenes/Objects/Fan.tscn" id="7_xqkg2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbbnw"]
 texture = ExtResource("1_o2vaq")
@@ -87,3 +88,8 @@ position_smoothing_enabled = true
 
 [node name="Enemy" parent="." instance=ExtResource("6_3li37")]
 position = Vector2(-150, -85)
+
+[node name="EnvironmentalFactors" type="Node2D" parent="."]
+
+[node name="Fan" parent="EnvironmentalFactors" instance=ExtResource("7_xqkg2")]
+position = Vector2(-88, -16)
