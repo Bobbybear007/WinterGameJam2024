@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://rjeirjy7xmei"]
+[gd_scene load_steps=8 format=3 uid="uid://rjeirjy7xmei"]
 
 [ext_resource type="PackedScene" uid="uid://d0cktxgkxgmd3" path="res://Scenes/Objects/Player.tscn" id="2_nn0q8"]
 [ext_resource type="PackedScene" uid="uid://cd41jfwdk228n" path="res://Scenes/Objects/Fan.tscn" id="3_5lms5"]
 [ext_resource type="Texture2D" uid="uid://wcmhoixslwxj" path="res://Sprites/Map/Tileset.png" id="4_783up"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/Guard1.tscn" id="4_ctwpb"]
+[ext_resource type="PackedScene" uid="uid://yqxy54kfbo0y" path="res://Scenes/Objects/Toilet.tscn" id="5_7cdl3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nq3b5"]
 texture = ExtResource("4_783up")
@@ -38,3 +40,8 @@ layer_0/tile_data = PackedInt32Array(-327691, 0, 0, -262155, 0, 1, -196619, 0, 1
 
 [node name="Fan" parent="." instance=ExtResource("3_5lms5")]
 position = Vector2(-84.9, -13.6)
+
+[node name="Guard1" parent="." instance=ExtResource("4_ctwpb")]
+position = Vector2(158.3, -44.8)
+
+[node name="Toilet" parent="." instance=ExtResource("5_7cdl3")]

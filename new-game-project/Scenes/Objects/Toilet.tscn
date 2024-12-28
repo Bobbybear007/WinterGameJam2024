@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://yqxy54kfbo0y"]
+
+[ext_resource type="Texture2D" uid="uid://pehextc7h780" path="res://Sprites/Map/Props/Erdogan.png" id="1_gmgh4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3o7yu"]
+size = Vector2(12, 12)
+
+[node name="Toilet" type="StaticBody2D"]
+position = Vector2(-135.3, -48.8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.400024, 6)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_3o7yu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_gmgh4")
