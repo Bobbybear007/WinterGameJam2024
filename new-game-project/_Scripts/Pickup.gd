@@ -10,5 +10,6 @@ func _ready() -> void:
 func _on_body_entered(body):
 	if body is CharacterBody2D:
 		print("Player entered pickup area")
+		
 		emit_signal("picked_up")
 		queue_free()
