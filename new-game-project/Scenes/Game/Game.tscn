@@ -109,6 +109,7 @@ position = Vector2(-136, -64)
 
 [node name="Guard2" parent="." instance=ExtResource("8_sig7y")]
 position = Vector2(148, -19)
+speed = 50.0
 
 [node name="Guard3" parent="." instance=ExtResource("9_b5te5")]
 position = Vector2(16, -188)
