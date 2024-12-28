@@ -2,13 +2,23 @@ extends CharacterBody2D
 
 @export var sus_time = 2
 @export var speed = 25
+@export var idle_speed = 10  # Speed when randomly walking
+@export var walk_range = 100  # Range for random walking
 
 @onready var animated_sprite = $AnimatedSprite
+@onready var random_walk_timer = Timer.new()
 
 var player_chase = false
 var player_in_hit_range = false
 var player_has_item = false
 var player = null
+var idle_target_position = Vector2.ZERO
+
+func _ready() -> void:
+	add_child(random_walk_timer)
+	random_walk_timer.wait_time = 2
+	random_walk_timer.connect("timeout", Callable(self, "_on_random_walk_timeout"))
+	random_walk_timer.start()
 
 func _on_detection_area_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
@@ -42,15 +52,23 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if player_chase and player:
 		position += (player.position - position) / speed
+	else:
+		if position.distance_to(idle_target_position) < 5:
+			idle_target_position = position
+		else:
+			var direction = (idle_target_position - position).normalized()
+			position += direction * idle_speed * delta
 
 func handle_animation() -> void:
 	if player_chase:
 		animated_sprite.play("Move")
 		if player != null:
 			animated_sprite.scale.x = 1 if player.position.x > position.x else -1
+	elif position != idle_target_position:
+		animated_sprite.play("Move")
+		animated_sprite.scale.x = 1 if idle_target_position.x > position.x else -1
 	else:
 		animated_sprite.play("Idle")
-
 
 func _on_hit_area_body_entered(body):
 	if body.name == "Player":
@@ -61,3 +79,8 @@ func _on_hit_area_body_exited(body: Node2D) -> void:
 
 func _change_scene():
 	get_tree().change_scene_to_file("res://Scenes/Game/kill_map.tscn")
+
+func _on_random_walk_timeout():
+	if not player_chase:
+		idle_target_position = position + Vector2(randi() % (2 * walk_range) - walk_range, randi() % (2 * walk_range) - walk_range)
+		random_walk_timer.start()
