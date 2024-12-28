@@ -1,37 +1,50 @@
-[gd_scene load_steps=6 format=3 uid="uid://me4lem075qw2"]
+[gd_scene load_steps=7 format=3 uid="uid://cd41jfwdk228n"]
 
-[ext_resource type="Texture2D" uid="uid://b0lmodddm0pvv" path="res://Sprites/Map/EnvironmentalFactors/Fan.png" id="1_1ldrd"]
+[ext_resource type="Texture2D" uid="uid://b0lmodddm0pvv" path="res://Sprites/Map/EnvironmentalFactors/Fan.png" id="1_l8cnf"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qjfx7"]
-atlas = ExtResource("1_1ldrd")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xau47"]
+size = Vector2(8, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6klb"]
+atlas = ExtResource("1_l8cnf")
 region = Rect2(0, 0, 32, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fa4ab"]
-atlas = ExtResource("1_1ldrd")
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ens7"]
+atlas = ExtResource("1_l8cnf")
 region = Rect2(32, 0, 32, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3nn4p"]
-atlas = ExtResource("1_1ldrd")
+[sub_resource type="AtlasTexture" id="AtlasTexture_uiwnh"]
+atlas = ExtResource("1_l8cnf")
 region = Rect2(64, 0, 32, 48)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_tmmje"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_n7isx"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qjfx7")
+"texture": SubResource("AtlasTexture_s6klb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fa4ab")
+"texture": SubResource("AtlasTexture_6ens7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3nn4p")
+"texture": SubResource("AtlasTexture_uiwnh")
 }],
 "loop": true,
 "name": &"default",
 "speed": 16.0
 }]
 
-[node name="Fan" type="AnimatedSprite2D"]
-sprite_frames = SubResource("SpriteFrames_tmmje")
+[node name="Fan" type="StaticBody2D"]
+z_index = -1
+position = Vector2(0, -3)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_xau47")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_n7isx")
 autoplay = "default"
-frame_progress = 0.220539
+frame_progress = 0.203906
