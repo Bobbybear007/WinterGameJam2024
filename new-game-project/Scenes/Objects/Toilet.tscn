@@ -6,11 +6,9 @@
 size = Vector2(12, 12)
 
 [node name="Toilet" type="StaticBody2D"]
-position = Vector2(-135.3, -48.8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.400024, 6)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_3o7yu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
