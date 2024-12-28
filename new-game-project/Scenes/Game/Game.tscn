@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://cvmbcfl36jsg3"]
+[gd_scene load_steps=12 format=4 uid="uid://cvmbcfl36jsg3"]
 
 [ext_resource type="Texture2D" uid="uid://wcmhoixslwxj" path="res://Sprites/Map/Tileset.png" id="1_o2vaq"]
 [ext_resource type="PackedScene" uid="uid://d0cktxgkxgmd3" path="res://Scenes/Objects/Player.tscn" id="1_y5b83"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dux87xjd7rkfi" path="res://Scenes/Objects/Guard1.tscn" id="7_ox4oq"]
 [ext_resource type="PackedScene" uid="uid://cd41jfwdk228n" path="res://Scenes/Objects/Fan.tscn" id="7_xqkg2"]
 [ext_resource type="PackedScene" uid="uid://dt6slm4n4d0ch" path="res://Scenes/Objects/Guard2.tscn" id="8_sig7y"]
+[ext_resource type="PackedScene" uid="uid://b8b515kxy4s6m" path="res://Scenes/Objects/Guard3.tscn" id="9_b5te5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbbnw"]
 texture = ExtResource("1_o2vaq")
@@ -108,3 +109,6 @@ position = Vector2(-136, -64)
 
 [node name="Guard2" parent="." instance=ExtResource("8_sig7y")]
 position = Vector2(148, -19)
+
+[node name="Guard3" parent="." instance=ExtResource("9_b5te5")]
+position = Vector2(16, -188)
