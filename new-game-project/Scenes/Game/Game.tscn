@@ -2,13 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://wcmhoixslwxj" path="res://Sprites/Map/Tileset.png" id="1_o2vaq"]
 [ext_resource type="PackedScene" uid="uid://d0cktxgkxgmd3" path="res://Scenes/Objects/Player.tscn" id="1_y5b83"]
-[ext_resource type="PackedScene" uid="uid://h32nfom7afhq" path="res://Scenes/Objects/Screwdriver.tscn" id="5_grny6"]
-[ext_resource type="PackedScene" uid="uid://cfmyw8nekaytx" path="res://Scenes/Objects/Guard1.tscn" id="6_3li37"]
-[ext_resource type="PackedScene" uid="uid://bsspxn8enisc4" path="res://Scenes/Objects/Noodles.tscn" id="6_gjttt"]
-[ext_resource type="PackedScene" uid="uid://bhe2l5q1yqmfg" path="res://Scenes/Objects/ToiletPaper.tscn" id="6_qt4k2"]
-[ext_resource type="PackedScene" uid="uid://me4lem075qw2" path="res://Scenes/Objects/Fan.tscn" id="7_xqkg2"]
-[ext_resource type="PackedScene" uid="uid://vd8dlxiln44p" path="res://Scenes/Objects/Guard2.tscn" id="8_sig7y"]
-[ext_resource type="PackedScene" uid="uid://dlybfflsk8ut2" path="res://Scenes/Objects/Guard3.tscn" id="9_b5te5"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/Screwdriver.tscn" id="5_grny6"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/Noodles.tscn" id="6_gjttt"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/ToiletPaper.tscn" id="6_qt4k2"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/Guard1.tscn" id="7_ox4oq"]
+[ext_resource type="PackedScene" uid="uid://cd41jfwdk228n" path="res://Scenes/Objects/Fan.tscn" id="7_xqkg2"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/Guard2.tscn" id="8_sig7y"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/Guard3.tscn" id="9_b5te5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbbnw"]
 texture = ExtResource("1_o2vaq")
@@ -94,8 +94,8 @@ position_smoothing_enabled = true
 [node name="Fan" parent="EnvironmentalFactors" instance=ExtResource("7_xqkg2")]
 position = Vector2(-89, 10)
 
-[node name="Guard1" parent="." instance=ExtResource("6_3li37")]
-position = Vector2(-142, -84)
+[node name="Guard1" parent="." instance=ExtResource("7_ox4oq")]
+position = Vector2(-136, -64)
 
 [node name="Guard2" parent="." instance=ExtResource("8_sig7y")]
 position = Vector2(165, -12)
