@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cfmyw8nekaytx"]
+[gd_scene load_steps=13 format=3 uid="uid://cfmyw8nekaytx"]
 
 [ext_resource type="Script" path="res://_Scripts/Enemy/enemy.gd" id="1_2edp1"]
 [ext_resource type="Texture2D" uid="uid://dns07gaacgkw2" path="res://Sprites/Guards/Guard1.png" id="3_31s6v"]
@@ -67,6 +67,9 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_x7x2r"]
+radius = 15.0
+
 [node name="Guard1" type="CharacterBody2D"]
 script = ExtResource("1_2edp1")
 speed = 60
@@ -87,5 +90,13 @@ sprite_frames = SubResource("SpriteFrames_c4hwu")
 animation = &"Move"
 autoplay = "Idle"
 
+[node name="Hit_Area" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit_Area"]
+shape = SubResource("CircleShape2D_x7x2r")
+
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="Hit_Area" to="." method="_on_hit_area_body_entered"]

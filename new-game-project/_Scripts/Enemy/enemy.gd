@@ -53,3 +53,12 @@ func handle_animation() -> void:
 			animated_sprite.scale.x = 1 if player.position.x > position.x else -1
 	else:
 		animated_sprite.play("Idle")
+
+
+func _on_hit_area_body_entered(body):
+	if body.name == "Player":
+		call_deferred("_change_scene")
+
+
+func _change_scene():
+	get_tree().change_scene_to_file("res://Scenes/Game/kill_map.tscn")
