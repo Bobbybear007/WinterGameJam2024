@@ -7,26 +7,21 @@ extends CharacterBody2D
 @onready var hat_animation_player = $Visuals/Hat
 @onready var jacket_animation_player = $Visuals/Jacket
 
-
-
-
 var has_pickup = false
 var direction = 1
 var input = Vector2()
 
 func _ready():
-	
 	var noodles = $"../Noodles"
 	var screwdriver = $"../Screwdriver"
 	var toilet_paper = $"../ToiletPaper"
-	
+
 	if noodles:
 		add_pickup_object(noodles)
 	if screwdriver:
 		add_pickup_object(screwdriver)
 	if toilet_paper:
 		add_pickup_object(toilet_paper)
-
 
 func add_pickup_object(pickup_object):
 	print("Connecting pickup object signal to the Player")
@@ -36,7 +31,6 @@ func _on_pickup_object_picked_up() -> void:
 	print("Pickup object collected!")
 	has_pickup = true
 	print("has_pickup is now:", has_pickup)
-
 
 func has_pickup_item() -> bool:
 	print("has_pickup_item() called, returning:", has_pickup)
@@ -60,12 +54,12 @@ func handle_animation() -> void:
 		play_animation("idle")
 	else:
 		play_animation("move")
-		
+
 func play_animation(name):
 	base_animation_player.play(name)
 	hat_animation_player.play(name)
 	jacket_animation_player.play(name)
-	
+
 func handle_flip() -> void:
 	if input.x == 0:
 		return
@@ -73,3 +67,7 @@ func handle_flip() -> void:
 	if round(input.x) != direction:
 		direction *= -1
 		visuals.scale.x = direction
+
+# --- ADD THIS FUNCTION ---
+func drop_hat() -> void:
+	hat_animation_player.visible = false  # Hides the hat sprite
