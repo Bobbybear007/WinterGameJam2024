@@ -1,0 +1,93 @@
+[gd_scene load_steps=12 format=3 uid="uid://dlybfflsk8ut2"]
+
+[ext_resource type="Script" path="res://_Scripts/Enemy/enemy.gd" id="1_uufye"]
+[ext_resource type="Texture2D" uid="uid://c3sc363d7l5uq" path="res://Sprites/Guards/Guard3.png" id="2_s8ssy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jhp3a"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_73a0k"]
+radius = 54.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0gaa"]
+atlas = ExtResource("2_s8ssy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkga8"]
+atlas = ExtResource("2_s8ssy")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5yif"]
+atlas = ExtResource("2_s8ssy")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8bn4"]
+atlas = ExtResource("2_s8ssy")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aha4a"]
+atlas = ExtResource("2_s8ssy")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aha4s"]
+atlas = ExtResource("2_s8ssy")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c4hwu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0gaa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkga8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5yif")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8bn4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aha4a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aha4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aha4a")
+}],
+"loop": true,
+"name": &"Move",
+"speed": 7.0
+}]
+
+[node name="Guard3" type="CharacterBody2D"]
+script = ExtResource("1_uufye")
+speed = 60
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_jhp3a")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_73a0k")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.976563, 0.984375)
+sprite_frames = SubResource("SpriteFrames_c4hwu")
+animation = &"Move"
+autoplay = "Idle"
+frame = 2
+frame_progress = 0.464027
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
