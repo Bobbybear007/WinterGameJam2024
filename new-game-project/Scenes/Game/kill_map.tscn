@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://byjgv54q13d7x"]
+[gd_scene load_steps=2 format=3 uid="uid://ccos0y0xix35a"]
 
 [ext_resource type="Texture2D" uid="uid://8n6hyqfxymrq" path="res://Sprites/icon/BadIcon.png" id="1_ys444"]
 
@@ -16,3 +16,20 @@ position = Vector2(1, -1)
 texture = ExtResource("1_ys444")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = -336.0
+offset_top = -216.0
+offset_right = -192.0
+offset_bottom = -184.0
+scale = Vector2(5.34557, 4.89498)
+text = "you are is dead"
+scroll_active = false
+tab_size = 8
