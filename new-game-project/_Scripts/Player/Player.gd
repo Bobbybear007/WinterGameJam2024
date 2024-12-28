@@ -51,5 +51,25 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _process(delta: float) -> void:
-	
+	handle_animation()
+	handle_flip()
 	pass
+
+func handle_animation() -> void:
+	if input.x == 0 and input.y == 0:
+		play_animation("idle")
+	else:
+		play_animation("move")
+		
+func play_animation(name):
+	base_animation_player.play(name)
+	hat_animation_player.play(name)
+	jacket_animation_player.play(name)
+	
+func handle_flip() -> void:
+	if input.x == 0:
+		return
+
+	if round(input.x) != direction:
+		direction *= -1
+		visuals.scale.x = direction
