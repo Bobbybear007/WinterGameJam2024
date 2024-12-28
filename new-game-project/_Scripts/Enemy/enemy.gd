@@ -1,111 +1,173 @@
 extends CharacterBody2D
 
-# === Exported Variables === #
+@export var sus_time = 2
+@export var speed = 25
+
+@onready var animated_sprite = $AnimatedSprite2D
+
+var player_chase = false
+var player_in_hit_range = false
+var player_has_item = false
+var player = null
+
+# --------------------------
+# RANDOM MOVEMENT VARIABLES
+# --------------------------
 @export var move_duration_min: float = 1.0      # Minimum time to move before idling (seconds)
 @export var move_duration_max: float = 3.0      # Maximum time to move before idling (seconds)
 @export var idle_duration_min: float = 1.0      # Minimum time to idle (seconds)
 @export var idle_duration_max: float = 3.0      # Maximum time to idle (seconds)
-@export var speed: float = 50                   # Movement speed (pixels per second)
-@export var walk_range: float = 100             # Range for random walking (pixels)
+@export var walk_range: float = 100             # Range for random wandering
 
-# === State Enumeration === #
-enum State {
-	STATE_MOVE,   # Enemy is moving
-	STATE_IDLE    # Enemy is idling
-}
-
-# === Internal Variables === #
-var current_state: State = State.STATE_IDLE
-var target_position: Vector2 = Vector2.ZERO
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
-# === Timers (created at runtime and added as children) === #
 @onready var movement_timer: Timer = Timer.new()
 @onready var idle_timer: Timer = Timer.new()
 
-# === AnimatedSprite2D === #
-@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+enum State {
+	MOVE,
+	IDLE
+}
+var current_state: State = State.IDLE
+var target_position: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	rng.randomize()
 
-	# Add timers as children
+	# Add Timers to the scene tree
 	add_child(movement_timer)
 	add_child(idle_timer)
 
-	# Configure and connect timers
+	# Configure Timers
 	movement_timer.one_shot = true
 	movement_timer.connect("timeout", Callable(self, "_on_movement_timeout"))
 
 	idle_timer.one_shot = true
 	idle_timer.connect("timeout", Callable(self, "_on_idle_timeout"))
 
-	# Randomly decide the initial state
+	# Randomly start moving or idling
 	if rng.randi_range(0, 1) == 0:
 		_start_moving(true)
 	else:
 		_start_idling(true)
 
+# ------------------------------------------------------
+# DETECTION / CHASE LOGIC
+# ------------------------------------------------------
+func _on_detection_area_body_entered(body: Node2D) -> void:
+	if body is CharacterBody2D:
+		player = body
+		player_has_item = player.has_pickup_item()
+		if player_has_item:
+			print("Player has item. Using short sus time:", sus_time)
+			call_deferred("start_chase")
+		else:
+			print("Yeah no this weirdo looks perfectly normal, no weird bulges or anything")
+
+func _on_max_agro_range_body_exited(body: Node2D) -> void:
+	if body is CharacterBody2D:
+		print("<color=green>exited range</color>")
+		player = null
+		player_chase = false
+
+func start_chase() -> void:
+	var timer = get_tree().create_timer(sus_time)
+	await timer.timeout
+	if player != null:
+		player_chase = true
+
+# ------------------------------------------------------
+# PROCESS AND PHYSICS
+# ------------------------------------------------------
+func _process(delta: float) -> void:
+	handle_animation()
+	if player_chase and player_in_hit_range:
+		call_deferred("_change_scene")
+
 func _physics_process(delta: float) -> void:
-	match current_state:
-		State.STATE_MOVE:
-			var direction = (target_position - position).normalized()
-			velocity = direction * speed
-			move_and_slide()
+	if player_chase and player:
+		# --- CHASE LOGIC (no wall collision detection here) ---
+		position += (player.position - position) / speed
+	else:
+		# --- RANDOM WANDERING with WALL COLLISION DETECTION ---
+		match current_state:
+			State.MOVE:
+				
+				var direction = (target_position - position).normalized()
+				
+				var motion = direction * speed * delta
+				
+				
+				var collision = move_and_collide(motion)
+				if collision:
+					
+					pick_random_position()
+				else:
+					
+					position += motion
 
-			# Flip the sprite (optional, for left/right)
-			if direction.x != 0 and animated_sprite:
-				animated_sprite.flip_h = direction.x < 0
+				
+				if position.distance_to(target_position) < 5:
+					_start_idling()
+			State.IDLE:
+				
+				pass
 
-			# If we're close to our target, switch to idle
-			if position.distance_to(target_position) < 5:
-				_start_idling()
+# ------------------------------------------------------
+# ANIMATION
+# ------------------------------------------------------
+func handle_animation() -> void:
+	
+	if player_chase and player:
+		
+		animated_sprite.play("Move")
+		animated_sprite.scale.x = 1 if player.position.x > position.x else -1
+	else:
+		
+		if current_state == State.MOVE:
+			animated_sprite.play("Move")
+			animated_sprite.scale.x = 1 if target_position.x > position.x else -1
+		else:
+			animated_sprite.play("Idle")
 
-		State.STATE_IDLE:
-			# Just stay still
-			velocity = Vector2.ZERO
-			move_and_slide()
 
-# === Movement Functions === #
+# ------------------------------------------------------
+# HIT AREA & SCENE CHANGE
+# ------------------------------------------------------
+func _on_hit_area_body_entered(body):
+	if body.name == "Player":
+		player_in_hit_range = true
+
+func _on_hit_area_body_exited(body: Node2D) -> void:
+	player_in_hit_range = false
+
+func _change_scene():
+	get_tree().change_scene_to_file("res://Scenes/Game/kill_map.tscn")
+
+# ------------------------------------------------------
+# RANDOM MOVEMENT IMPLEMENTATION
+# ------------------------------------------------------
 func _start_moving(initial: bool = false) -> void:
-	current_state = State.STATE_MOVE
+	current_state = State.MOVE
 	pick_random_position()
 
-	# Set a random move duration
 	var move_duration = rng.randf_range(move_duration_min, move_duration_max)
 	movement_timer.wait_time = move_duration
 	movement_timer.start()
 
-	# Play walking animation
-	if animated_sprite:
-		animated_sprite.play("Move")
-	else:
-		print("Warning: AnimatedSprite2D is null when trying to play 'walk'")
-
 func _on_movement_timeout() -> void:
 	_start_idling()
 
-# === Idle Functions === #
 func _start_idling(initial: bool = false) -> void:
-	current_state = State.STATE_IDLE
-	velocity = Vector2.ZERO
-	move_and_slide()
+	current_state = State.IDLE
 
-	# Set a random idle duration
 	var idle_duration = rng.randf_range(idle_duration_min, idle_duration_max)
 	idle_timer.wait_time = idle_duration
 	idle_timer.start()
 
-	# Play idle animation
-	if animated_sprite:
-		animated_sprite.play("Idle")
-	else:
-		print("Warning: AnimatedSprite2D is null when trying to play 'idle'")
-
 func _on_idle_timeout() -> void:
 	_start_moving()
 
-# === Helper Functions === #
 func pick_random_position() -> void:
 	var rand_offset = Vector2(
 		rng.randi_range(-walk_range, walk_range),

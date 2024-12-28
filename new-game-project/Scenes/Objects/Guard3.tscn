@@ -71,7 +71,7 @@ radius = 54.0
 radius = 15.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1jtuq"]
-radius = 209.11
+radius = 85.3756
 
 [node name="Guard3" type="CharacterBody2D"]
 script = ExtResource("1_uufye")
