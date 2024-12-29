@@ -68,6 +68,6 @@ func handle_flip() -> void:
 		direction *= -1
 		visuals.scale.x = direction
 
-# --- ADD THIS FUNCTION ---
+
 func drop_hat() -> void:
 	hat_animation_player.visible = false  # Hides the hat sprite
