@@ -1,23 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://dblmv65waeykg"]
+[gd_scene load_steps=5 format=3 uid="uid://d1cdwd8wp1gg4"]
 
 [ext_resource type="Texture2D" uid="uid://bgiep5gr8vihw" path="res://Sprites/Player/Hat.png" id="1_3avho"]
 [ext_resource type="Script" path="res://_Scripts/hat_pickup.gd" id="1_a1ymc"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l2nob"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sm4it"]
 size = Vector2(9, 4)
 
-[node name="Hat" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_8ydv4"]
+radius = 13.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_3avho")
-
-[node name="Pickup_area" type="Area2D" parent="."]
+[node name="HatPickup" type="Area2D"]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_a1ymc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup_area"]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_l2nob")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3avho")
 
-[connection signal="body_entered" from="Pickup_area" to="Pickup_area" method="_on_body_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_sm4it")
+
+[node name="Pickup_area" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8ydv4")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
