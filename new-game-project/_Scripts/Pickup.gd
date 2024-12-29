@@ -1,6 +1,6 @@
 extends Area2D
 
-signal picked_up
+signal picked_up_hat
 
 func _ready() -> void:
 	
@@ -11,5 +11,5 @@ func _on_body_entered(body):
 	if body is CharacterBody2D:
 		print("Player entered pickup area")
 		
-		emit_signal("picked_up")
+		emit_signal("picked_up_hat")
 		queue_free()

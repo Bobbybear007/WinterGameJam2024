@@ -71,3 +71,8 @@ func handle_flip() -> void:
 
 func drop_hat() -> void:
 	hat_animation_player.visible = false  # Hides the hat sprite
+
+func hat_picked_up() -> void:
+	print("Hat pickup signal received!")
+	hat_animation_player.visible = true
+	print("New hat visibility:", hat_animation_player.visible)

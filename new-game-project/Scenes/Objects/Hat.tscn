@@ -11,11 +11,13 @@ size = Vector2(9, 4)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_3avho")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Pickup_area" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_a1ymc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup_area"]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_l2nob")
+
+[connection signal="body_entered" from="Pickup_area" to="Pickup_area" method="_on_body_entered"]
