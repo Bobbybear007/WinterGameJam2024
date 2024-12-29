@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://cd41jfwdk228n"]
 
-[ext_resource type="Script" path="res://Scenes/Objects/fan.gd" id="1_d8oy0"]
+[ext_resource type="Script" path="res://_Scripts/fan.gd" id="1_d8oy0"]
 [ext_resource type="Texture2D" uid="uid://b0lmodddm0pvv" path="res://Sprites/Map/EnvironmentalFactors/Fan.png" id="1_l8cnf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s6klb"]
