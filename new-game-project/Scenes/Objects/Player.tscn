@@ -219,7 +219,6 @@ process_callback = 0
 position_smoothing_enabled = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 z_index = -102
 offset_left = -3905.0
 offset_top = -2609.0

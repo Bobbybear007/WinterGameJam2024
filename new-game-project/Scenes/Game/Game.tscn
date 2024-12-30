@@ -98,6 +98,10 @@ position = Vector2(-41, -72)
 [node name="Player" parent="Stuff" instance=ExtResource("1_y5b83")]
 position = Vector2(16, 40)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="Stuff"]
+
+[node name="ItemPickupUI" parent="Stuff/CanvasLayer" instance=ExtResource("1_v5661")]
+
 [node name="EnvironmentalFactors" type="Node2D" parent="."]
 
 [node name="Guard1" parent="." instance=ExtResource("7_ox4oq")]
@@ -115,7 +119,3 @@ position = Vector2(16, -188)
 position = Vector2(-111, 42)
 
 [node name="Music" parent="." instance=ExtResource("11_5wvx4")]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ItemPickupUI" parent="CanvasLayer" instance=ExtResource("1_v5661")]
