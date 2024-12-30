@@ -1,92 +1,87 @@
-[gd_scene load_steps=4 format=3 uid="uid://c58s0v328f1sn"]
+[gd_scene load_steps=3 format=3 uid="uid://c58s0v328f1sn"]
 
-[ext_resource type="Texture2D" uid="uid://dfcjakjwuhiuf" path="res://Sprites/UI/HatButton.png" id="1_05dqn"]
-[ext_resource type="Texture2D" uid="uid://csi5c7j2fuxwf" path="res://Sprites/UI/JacketButton.png" id="2_7hvwj"]
-[ext_resource type="Texture2D" uid="uid://lqree32im057" path="res://Sprites/UI/LunchboxButton.png" id="3_takok"]
+[ext_resource type="Script" path="res://_Scripts/Container/ContainerSelectionWindows.gd" id="1_neyb1"]
 
-[node name="ItemPickupUI" type="Control"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ic16r"]
+bg_color = Color(1, 1, 1, 1)
+shadow_size = 10
+
+[node name="ItemPickupUI" type="Control" node_paths=PackedStringArray("panel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_neyb1")
+panel = NodePath("Panel")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Panel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -320.0
-offset_top = -196.0
-offset_right = 320.0
-offset_bottom = 188.0
+offset_left = -192.0
+offset_top = -140.0
+offset_right = 192.0
+offset_bottom = 140.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.64, 0.5888, 0.60416, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ic16r")
 
-[node name="Menu" type="NinePatchRect" parent="."]
+[node name="ContainerChoice" type="HBoxContainer" parent="Panel"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -320.0
-offset_top = -196.0
-offset_right = 320.0
-offset_bottom = 188.0
+anchors_preset = -1
+anchor_left = 0.104167
+anchor_top = 0.164286
+anchor_right = 0.90625
+anchor_bottom = 0.521429
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Menu"]
+[node name="HatBTN" type="Button" parent="Panel/ContainerChoice"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+text = "hat"
+
+[node name="JacketBTN" type="Button" parent="Panel/ContainerChoice"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+text = "jacket"
+
+[node name="LunchboxBTN" type="Button" parent="Panel/ContainerChoice"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+text = "lunchbox"
+
+[node name="Confirmation" type="HBoxContainer" parent="Panel"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -214.0
-offset_top = -64.0
-offset_right = 86.0
-offset_bottom = 63.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -74.0
+offset_right = 74.0
+offset_bottom = -34.0
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 150
+grow_vertical = 0
 
-[node name="Hat" type="Panel" parent="Menu/HBoxContainer"]
+[node name="OK" type="Button" parent="Panel/Confirmation"]
+custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
+text = "OK"
 
-[node name="Button" type="Button" parent="Menu/HBoxContainer/Hat"]
+[node name="Cancel" type="Button" parent="Panel/Confirmation"]
+custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
-offset_left = -2.0
-offset_right = 126.0
-offset_bottom = 128.0
-icon = ExtResource("1_05dqn")
-icon_alignment = 1
-expand_icon = true
+text = "Cancel"
 
-[node name="Jacket" type="Panel" parent="Menu/HBoxContainer"]
-layout_mode = 2
-
-[node name="Button2" type="Button" parent="Menu/HBoxContainer/Jacket"]
-layout_mode = 2
-offset_left = -2.0
-offset_right = 126.0
-offset_bottom = 128.0
-icon = ExtResource("2_7hvwj")
-icon_alignment = 1
-expand_icon = true
-
-[node name="Lunchbox" type="Panel" parent="Menu/HBoxContainer"]
-layout_mode = 2
-
-[node name="Button3" type="Button" parent="Menu/HBoxContainer/Lunchbox"]
-layout_mode = 2
-offset_left = -2.0
-offset_right = 126.0
-offset_bottom = 128.0
-icon = ExtResource("3_takok")
-expand_icon = true
+[connection signal="pressed" from="Panel/ContainerChoice/HatBTN" to="." method="_on_hat_btn_pressed"]
+[connection signal="pressed" from="Panel/ContainerChoice/JacketBTN" to="." method="_on_jacket_btn_pressed"]
+[connection signal="pressed" from="Panel/ContainerChoice/LunchboxBTN" to="." method="_on_lunchbox_btn_pressed"]
+[connection signal="pressed" from="Panel/Confirmation/OK" to="." method="_on_ok_pressed"]
+[connection signal="pressed" from="Panel/Confirmation/Cancel" to="." method="_on_cancel_pressed"]
