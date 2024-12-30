@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://wcmhoixslwxj" path="res://Sprites/Map/Tileset.png" id="1_o2vaq"]
 [ext_resource type="PackedScene" uid="uid://d0cktxgkxgmd3" path="res://Scenes/Objects/Player.tscn" id="1_y5b83"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/Screwdriver.tscn" id="5_grny6"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/Noodles.tscn" id="6_gjttt"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/ToiletPaper.tscn" id="6_qt4k2"]
+[ext_resource type="PackedScene" uid="uid://h32nfom7afhq" path="res://Scenes/Objects/Screwdriver.tscn" id="5_grny6"]
+[ext_resource type="PackedScene" uid="uid://bsspxn8enisc4" path="res://Scenes/Objects/Noodles.tscn" id="6_gjttt"]
+[ext_resource type="PackedScene" uid="uid://bhe2l5q1yqmfg" path="res://Scenes/Objects/ToiletPaper.tscn" id="6_qt4k2"]
 [ext_resource type="PackedScene" uid="uid://dux87xjd7rkfi" path="res://Scenes/Objects/Guard1.tscn" id="7_ox4oq"]
 [ext_resource type="PackedScene" uid="uid://dt6slm4n4d0ch" path="res://Scenes/Objects/Guard2.tscn" id="8_sig7y"]
 [ext_resource type="PackedScene" uid="uid://b8b515kxy4s6m" path="res://Scenes/Objects/Guard3.tscn" id="9_b5te5"]
@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://d1cdwd8wp1gg4" path="res://Scenes/Objects/Hat.tscn" id="10_bt7g1"]
 [ext_resource type="PackedScene" uid="uid://dduu4d2sxtvmn" path="res://Scenes/Objects/music.tscn" id="11_5wvx4"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbbnw"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q34kg"]
 texture = ExtResource("1_o2vaq")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -3.1748, -3.02598, -3.07559, -3.1748, 8, -8, 8, -8, -8, 8, -8)
@@ -62,7 +62,7 @@ texture = ExtResource("1_o2vaq")
 [sub_resource type="TileSet" id="TileSet_wmjwv"]
 physics_layer_0/collision_layer = 3
 physics_layer_0/collision_mask = 3
-sources/0 = SubResource("TileSetAtlasSource_lbbnw")
+sources/0 = SubResource("TileSetAtlasSource_q34kg")
 
 [node name="Game" type="Node2D"]
 
@@ -86,23 +86,7 @@ position = Vector2(8, -56)
 position = Vector2(-41, -72)
 
 [node name="Player" parent="Stuff" instance=ExtResource("1_y5b83")]
-position = Vector2(16, 53)
-collision_layer = 3
-collision_mask = 3
-
-[node name="Camera2D" type="Camera2D" parent="Stuff/Player"]
-zoom = Vector2(5, 5)
-process_callback = 0
-position_smoothing_enabled = true
-
-[node name="ColorRect" type="ColorRect" parent="Stuff/Player/Camera2D"]
-show_behind_parent = true
-z_index = -101
-offset_left = -1804.0
-offset_top = -1507.0
-offset_right = 1874.0
-offset_bottom = 1052.0
-color = Color(0, 0, 0, 1)
+position = Vector2(16, 40)
 
 [node name="EnvironmentalFactors" type="Node2D" parent="."]
 

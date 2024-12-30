@@ -183,8 +183,8 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_jh7m0")
 speed = 100
 
@@ -210,3 +210,15 @@ z_index = 1
 sprite_frames = SubResource("SpriteFrames_c4gaw")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4.56, 4.56)
+position_smoothing_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -102
+offset_left = -3904.0
+offset_top = -2611.0
+offset_right = 4074.0
+offset_bottom = 2600.0
+color = Color(0, 0, 0, 1)
