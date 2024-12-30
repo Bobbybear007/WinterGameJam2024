@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cd41jfwdk228n"]
+[gd_scene load_steps=21 format=3 uid="uid://cd41jfwdk228n"]
 
 [ext_resource type="Script" path="res://_Scripts/fan.gd" id="1_d8oy0"]
 [ext_resource type="Texture2D" uid="uid://b0lmodddm0pvv" path="res://Sprites/Map/EnvironmentalFactors/Fan.png" id="1_l8cnf"]
+[ext_resource type="Texture2D" uid="uid://5vngqf4corv" path="res://Sprites/Map/EnvironmentalFactors/FanWave.png" id="3_2ayar"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s6klb"]
 atlas = ExtResource("1_l8cnf")
@@ -38,6 +39,84 @@ size = Vector2(8, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oj56c"]
 size = Vector2(62, 21)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_twx4i"]
+atlas = ExtResource("3_2ayar")
+region = Rect2(0, 0, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2p0a"]
+atlas = ExtResource("3_2ayar")
+region = Rect2(32, 0, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1qfx"]
+atlas = ExtResource("3_2ayar")
+region = Rect2(64, 0, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cepw6"]
+atlas = ExtResource("3_2ayar")
+region = Rect2(96, 0, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnogv"]
+atlas = ExtResource("3_2ayar")
+region = Rect2(128, 0, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pe11"]
+atlas = ExtResource("3_2ayar")
+region = Rect2(0, 24, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0d23"]
+atlas = ExtResource("3_2ayar")
+region = Rect2(32, 24, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avx3w"]
+atlas = ExtResource("3_2ayar")
+region = Rect2(64, 24, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pngyq"]
+atlas = ExtResource("3_2ayar")
+region = Rect2(96, 24, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26am3"]
+atlas = ExtResource("3_2ayar")
+region = Rect2(128, 24, 32, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cdiw0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twx4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2p0a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1qfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cepw6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnogv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1pe11")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0d23")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avx3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pngyq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26am3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 16.0
+}]
+
 [node name="Fan" type="StaticBody2D"]
 z_index = 1
 position = Vector2(0, -3)
@@ -59,5 +138,13 @@ shape = SubResource("RectangleShape2D_xau47")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DropArea"]
 position = Vector2(36, -9.5)
 shape = SubResource("RectangleShape2D_oj56c")
+
+[node name="Wave" type="AnimatedSprite2D" parent="."]
+z_index = 5
+position = Vector2(35, -9.5)
+scale = Vector2(2, 0.9)
+sprite_frames = SubResource("SpriteFrames_cdiw0")
+autoplay = "default"
+frame_progress = 0.258145
 
 [connection signal="body_entered" from="DropArea" to="." method="_on_drop_area_body_entered"]
