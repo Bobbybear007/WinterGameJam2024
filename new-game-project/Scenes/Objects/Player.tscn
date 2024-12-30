@@ -7,7 +7,6 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0g2ll"]
 radius = 4.625
-height = 10.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k0p3x"]
 atlas = ExtResource("3_0ejhq")
@@ -191,7 +190,7 @@ script = ExtResource("1_jh7m0")
 speed = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 10)
+position = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_0g2ll")
 
 [node name="Visuals" type="Node2D" parent="."]
@@ -220,9 +219,10 @@ process_callback = 0
 position_smoothing_enabled = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 z_index = -102
-offset_left = -3904.0
-offset_top = -2611.0
-offset_right = 4074.0
-offset_bottom = 2600.0
+offset_left = -3905.0
+offset_top = -2609.0
+offset_right = 4073.0
+offset_bottom = 2602.0
 color = Color(0, 0, 0, 1)
