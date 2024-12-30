@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=4 uid="uid://dxqb246i77ekc"]
 
-[ext_resource type="Texture2D" uid="uid://wcmhoixslwxj" path="res://Sprites/Map/Tileset.png" id="1_d28kr"]
+[ext_resource type="Texture2D" uid="uid://wcmhoixslwxj" path="res://Sprites/Map/Tileset1_1.png" id="1_d28kr"]
 [ext_resource type="Texture2D" uid="uid://c3iv72w4te6c3" path="res://Sprites/Map/RoadTilemap.png" id="2_0uh1l"]
 [ext_resource type="PackedScene" uid="uid://d0cktxgkxgmd3" path="res://Scenes/Objects/Player.tscn" id="2_civ16"]
 

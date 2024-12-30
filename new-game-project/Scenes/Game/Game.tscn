@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=4 uid="uid://cvmbcfl36jsg3"]
 
-[ext_resource type="Texture2D" uid="uid://wcmhoixslwxj" path="res://Sprites/Map/Tileset.png" id="1_o2vaq"]
+[ext_resource type="Texture2D" uid="uid://wcmhoixslwxj" path="res://Sprites/Map/Tileset1_1.png" id="1_o2vaq"]
 [ext_resource type="PackedScene" uid="uid://c58s0v328f1sn" path="res://Scenes/UI/ItemPickupUI.tscn" id="1_v5661"]
 [ext_resource type="PackedScene" uid="uid://d0cktxgkxgmd3" path="res://Scenes/Objects/Player.tscn" id="1_y5b83"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/Screwdriver.tscn" id="5_grny6"]
@@ -59,6 +59,15 @@ texture = ExtResource("1_o2vaq")
 1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:5/0 = 0
 2:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:5/0 = 0
+3:3/size_in_atlas = Vector2i(1, 2)
+3:3/0 = 0
+3:3/0/texture_origin = Vector2i(0, 8)
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 4.3125, 8, 4.25, 8, 8, -8, 8)
+4:3/size_in_atlas = Vector2i(1, 2)
+4:3/0 = 0
+4:3/0/texture_origin = Vector2i(0, 8)
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 4.3125, 8, 4.25, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_wmjwv"]
 physics_layer_0/collision_layer = 3
