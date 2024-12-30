@@ -65,7 +65,6 @@ layer_0/tile_data = PackedInt32Array(-327691, 0, 0, -262155, 0, 1, -196619, 0, 1
 [node name="TileMap2" type="TileMap" parent="."]
 z_index = -100
 position = Vector2(0, -8)
-scale = Vector2(1, 1)
 tile_set = SubResource("TileSet_empnr")
 format = 2
 
