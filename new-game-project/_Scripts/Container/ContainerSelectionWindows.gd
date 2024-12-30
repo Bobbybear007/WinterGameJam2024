@@ -7,6 +7,7 @@ var final_container = null
 
 func _ready() -> void:
 	hide_panel()
+	connect("picked_up", Callable(self, "display_panel"))
 
 func _process(delta: float) -> void:
 	# Temporary call
