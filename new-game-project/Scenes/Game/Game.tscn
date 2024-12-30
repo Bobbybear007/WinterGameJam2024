@@ -82,7 +82,7 @@ position = Vector2(24, -56)
 position = Vector2(8, -56)
 
 [node name="HatPickup" parent="Stuff" instance=ExtResource("10_bt7g1")]
-position = Vector2(-41, -72)
+position = Vector2(79, 85)
 
 [node name="Player" parent="Stuff" instance=ExtResource("1_y5b83")]
 position = Vector2(16, 53)
@@ -97,10 +97,10 @@ position_smoothing_enabled = true
 [node name="ColorRect" type="ColorRect" parent="Stuff/Player/Camera2D"]
 show_behind_parent = true
 z_index = -101
-offset_left = -1804.0
-offset_top = -1507.0
-offset_right = 1874.0
-offset_bottom = 1052.0
+offset_left = -1789.0
+offset_top = -1482.0
+offset_right = 1889.0
+offset_bottom = 1077.0
 color = Color(0, 0, 0, 1)
 
 [node name="EnvironmentalFactors" type="Node2D" parent="."]
@@ -117,4 +117,4 @@ position = Vector2(16, -188)
 [node name="Guards" type="Node2D" parent="."]
 
 [node name="Fan" parent="." instance=ExtResource("9_dn1bl")]
-position = Vector2(-111, 42)
+position = Vector2(-111, 45)
