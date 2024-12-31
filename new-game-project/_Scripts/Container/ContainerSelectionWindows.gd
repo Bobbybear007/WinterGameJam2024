@@ -15,12 +15,15 @@ func _process(delta: float) -> void:
 		display_panel()
 
 func display_panel() -> void:
+	Engine.time_scale = 0
 	panel.visible = true
 
 func hide_panel() -> void:
+	Engine.time_scale = 1
 	panel.visible = false
 
 func cancel() -> void:
+	print("AHEE. AHEE. ERHEE. AHEE.")
 	chosen_container = null
 	final_container = null
 	print("Canceled action")
