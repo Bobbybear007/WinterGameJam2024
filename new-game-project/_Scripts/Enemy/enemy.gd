@@ -62,10 +62,19 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
             if player_has_item:
                 print("Player has item. Using short sus time:", sus_time)
                 call_deferred("start_chase")
+                
+                # Use the full node path to access GuardAlert
+                var guard_alert = get_node("/root/Game/Stuff/GuardAlert")
+                if guard_alert:
+                    guard_alert.play()  # Play the GuardAlert sound
+                else:
+                    print("GuardAlert node not found!")
             else:
                 print("Yeah no this weirdo looks perfectly normal, no weird bulges or anything 😏")
         else:
             print("The detected body does not have the method 'has_pickup_item'.")
+
+
 
 
 func _on_max_agro_range_body_exited(body: Node2D) -> void:
