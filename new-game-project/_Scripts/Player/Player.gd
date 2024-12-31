@@ -91,13 +91,7 @@ func show_pickup_ui():
     item_pickup_ui.visible = true  # Ensure the UI is visible
     print("ItemPickupUI is now visible.")
     
-    # Create a one-shot timer for hiding the UI
-    var timer = Timer.new()
-    timer.wait_time = 2.0
-    timer.one_shot = true
-    timer.connect("timeout", Callable(self, "_hide_pickup_ui"))
-    add_child(timer)  # Add the timer to the scene tree
-    timer.start()
+  
 
 func _hide_pickup_ui():
     if item_pickup_ui:
