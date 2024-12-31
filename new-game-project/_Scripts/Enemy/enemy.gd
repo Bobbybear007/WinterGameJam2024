@@ -57,12 +57,16 @@ func _ready() -> void:
 func _on_detection_area_body_entered(body: Node2D) -> void:
     if body is CharacterBody2D:
         player = body
-        player_has_item = player.has_pickup_item()
-        if player_has_item:
-            print("Player has item. Using short sus time:", sus_time)
-            call_deferred("start_chase")
+        if player.has_method("has_pickup_item"):  # Ensure the method exists to prevent runtime errors
+            player_has_item = player.has_pickup_item()
+            if player_has_item:
+                print("Player has item. Using short sus time:", sus_time)
+                call_deferred("start_chase")
+            else:
+                print("Yeah no this weirdo looks perfectly normal, no weird bulges or anything 😏")
         else:
-            print("Yeah no this weirdo looks perfectly normal, no weird bulges or anything 😏")
+            print("The detected body does not have the method 'has_pickup_item'.")
+
 
 func _on_max_agro_range_body_exited(body: Node2D) -> void:
     if body is CharacterBody2D:

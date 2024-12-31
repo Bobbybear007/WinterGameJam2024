@@ -107,8 +107,16 @@ offset_top = -1.0
 offset_bottom = -1.0
 
 [node name="Prisoner" parent="Stuff" instance=ExtResource("8_a7k7r")]
-position = Vector2(15, 132)
+position = Vector2(16, 133)
 required_object = "ToiletPaper"
+
+[node name="Prisoner2" parent="Stuff" instance=ExtResource("8_a7k7r")]
+position = Vector2(64, -88)
+required_object = "Noodles"
+
+[node name="Prisoner3" parent="Stuff" instance=ExtResource("8_a7k7r")]
+position = Vector2(135, 88)
+required_object = "Screwdriver"
 
 [node name="EnvironmentalFactors" type="Node2D" parent="."]
 

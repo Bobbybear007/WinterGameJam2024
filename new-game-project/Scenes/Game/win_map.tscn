@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://8a1qr48qoem"]
+
+[ext_resource type="Texture2D" uid="uid://b316vhrvje1vr" path="res://Sprites/icon/Goodicon.png" id="1_gcukv"]
+
+[node name="Win_map" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -17255.0
+offset_top = -11359.0
+offset_right = 15716.0
+offset_bottom = 11614.0
+color = Color(0.196078, 0.439216, 0.266667, 1)
+
+[node name="Goodicon" type="Sprite2D" parent="."]
+position = Vector2(-1, 0)
+texture = ExtResource("1_gcukv")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.03, 2.03)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -211.0
+offset_top = -112.0
+offset_right = 218.0
+offset_bottom = 21.0
+text = "You succesfully smuggled all objects into the prison!!!!"

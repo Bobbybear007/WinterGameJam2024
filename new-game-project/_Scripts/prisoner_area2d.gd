@@ -35,4 +35,6 @@ func check_player_object(player: Node) -> void:
 func on_object_delivered(player: Node) -> void:
     print("Object successfully delivered to prisoner:", get_parent().name)
     player.remove_pickup_item()
-    queue_free()  # Remove the Area2D or update as necessary
+    if player.has_method("on_item_delivered"):
+        player.on_item_delivered(required_object)
+    queue_free()
