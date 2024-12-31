@@ -10,6 +10,7 @@ size = Vector2(8, 12)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_iwqi7")
+object_name = "Noodles"
 
 [node name="Noodles" type="Sprite2D" parent="."]
 texture = ExtResource("1_bdihg")

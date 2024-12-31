@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://cvmbcfl36jsg3"]
+[gd_scene load_steps=16 format=4 uid="uid://cvmbcfl36jsg3"]
 
 [ext_resource type="Texture2D" uid="uid://wcmhoixslwxj" path="res://Sprites/Map/Tileset1_1.png" id="1_o2vaq"]
 [ext_resource type="PackedScene" uid="uid://c58s0v328f1sn" path="res://Scenes/UI/ItemPickupUI.tscn" id="1_v5661"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bsspxn8enisc4" path="res://Scenes/Objects/Noodles.tscn" id="6_gjttt"]
 [ext_resource type="PackedScene" uid="uid://bhe2l5q1yqmfg" path="res://Scenes/Objects/ToiletPaper.tscn" id="6_qt4k2"]
 [ext_resource type="PackedScene" uid="uid://dux87xjd7rkfi" path="res://Scenes/Objects/Guard1.tscn" id="7_ox4oq"]
+[ext_resource type="PackedScene" uid="uid://b6dj5rn80bsut" path="res://Scenes/Objects/Prisoner.tscn" id="8_a7k7r"]
 [ext_resource type="PackedScene" uid="uid://dt6slm4n4d0ch" path="res://Scenes/Objects/Guard2.tscn" id="8_sig7y"]
 [ext_resource type="PackedScene" uid="uid://b8b515kxy4s6m" path="res://Scenes/Objects/Guard3.tscn" id="9_b5te5"]
 [ext_resource type="PackedScene" uid="uid://cd41jfwdk228n" path="res://Scenes/Objects/Fan.tscn" id="9_dn1bl"]
@@ -91,6 +92,7 @@ position = Vector2(24, -56)
 
 [node name="ToiletPaper" parent="Stuff" instance=ExtResource("6_qt4k2")]
 position = Vector2(8, -56)
+object_name = "ToiletPaper"
 
 [node name="HatPickup" parent="Stuff" instance=ExtResource("10_bt7g1")]
 position = Vector2(-41, -72)
@@ -101,6 +103,12 @@ position = Vector2(16, 40)
 [node name="CanvasLayer" type="CanvasLayer" parent="Stuff"]
 
 [node name="ItemPickupUI" parent="Stuff/CanvasLayer" instance=ExtResource("1_v5661")]
+offset_top = -1.0
+offset_bottom = -1.0
+
+[node name="Prisoner" parent="Stuff" instance=ExtResource("8_a7k7r")]
+position = Vector2(15, 132)
+required_object = "ToiletPaper"
 
 [node name="EnvironmentalFactors" type="Node2D" parent="."]
 

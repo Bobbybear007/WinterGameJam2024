@@ -9,6 +9,7 @@ extends CharacterBody2D
 @onready var item_pickup_ui: ContainerSelection = null  # Initialize as null to handle assignment dynamically
 
 var has_pickup = false
+var current_pickup_item: String = ""  # Holds the name of the currently picked-up object
 var direction = 1
 var input = Vector2()
 var has_hat = false  # Default is no hat until picked up
@@ -45,15 +46,26 @@ func add_pickup_object(pickup_object):
     print("Connecting pickup object signal to the Player")
     pickup_object.connect("picked_up", Callable(self, "_on_pickup_object_picked_up"))
 
-func _on_pickup_object_picked_up() -> void:
-    print("Pickup object collected!")
+func _on_pickup_object_picked_up(object_name: String) -> void:
+    print("Pickup object collected:", object_name)
     has_pickup = true
+    current_pickup_item = object_name  # Store the name of the collected object
     print("has_pickup is now:", has_pickup)
+    print("Current pickup item:", current_pickup_item)
     show_pickup_ui()
 
 func has_pickup_item() -> bool:
     print("has_pickup_item() called, returning:", has_pickup)
     return has_pickup
+
+func get_pickup_item() -> String:
+    print("get_pickup_item() called, returning:", current_pickup_item)
+    return current_pickup_item
+
+func remove_pickup_item():
+    print("Removing pickup item:", current_pickup_item)
+    current_pickup_item = ""
+    has_pickup = false
 
 func show_pickup_ui():
     if item_pickup_ui == null:
@@ -61,7 +73,7 @@ func show_pickup_ui():
         return
     item_pickup_ui.display_panel()
     print("ItemPickupUI is now visible.")
-    
+
     await get_tree().create_timer(2.0).timeout
     item_pickup_ui.visible = false
     print("ItemPickupUI is now hidden.")

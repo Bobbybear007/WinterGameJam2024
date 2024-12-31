@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6dj5rn80bsut"]
+[gd_scene load_steps=10 format=3 uid="uid://b6dj5rn80bsut"]
 
 [ext_resource type="Texture2D" uid="uid://b8mwxk33aprbp" path="res://Sprites/OtherCharacters/Prisoner.png" id="1_jts3x"]
+[ext_resource type="Script" path="res://_Scripts/prisoner.gd" id="1_rnb12"]
+[ext_resource type="Script" path="res://_Scripts/prisoner_area2d.gd" id="3_wvkpu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q337a"]
 atlas = ExtResource("1_jts3x")
@@ -34,7 +36,13 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yablw"]
 radius = 4.0
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_evfaw"]
+radius = 25.02
+
+[node name="Prisoner" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_rnb12")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_v4oax")
@@ -42,3 +50,9 @@ frame_progress = 0.210098
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_yablw")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_wvkpu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_evfaw")
