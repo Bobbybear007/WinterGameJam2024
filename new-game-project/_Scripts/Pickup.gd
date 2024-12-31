@@ -13,12 +13,14 @@ func _ready() -> void:
         connect("body_entered", Callable(self, "_on_body_entered"))
 
 func _on_body_entered(body):
-    # Check if the body is a player and if the player already has an item
     if body is CharacterBody2D and body.has_method("has_pickup_item"):
+        print("Player entered pickup area for:", object_name)
         if body.has_pickup_item():
             print("Player already has an object and cannot pick up another.")
             return  # Prevent picking up the item
 
-        print("Player picked up " + object_name)
+        print("Emitting picked_up signal for:", object_name)
         emit_signal("picked_up", object_name)
         queue_free()
+    else:
+        print("Body is not a valid player.")

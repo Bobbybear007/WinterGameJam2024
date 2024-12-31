@@ -11,6 +11,8 @@ extends CharacterBody2D
 @onready var jacket_animation_player = $Visuals/Jacket
 @onready var item_pickup_ui: ContainerSelection = null  # Initialize as null to handle assignment dynamically
 @export var total_items_to_deliver: int = 3  # Total number of items to deliver
+@onready var ui_element = $"../CanvasLayer/ItemPickupUI"
+
 
 
 var has_pickup = false
@@ -19,11 +21,14 @@ var direction = 1
 var input = Vector2()
 var has_hat = false  # Default is no hat until picked up
 var delivered_items: Array = []  # Tracks the names of delivered items
+var UI_open: bool = false
+
 
 #============================
 #       Initialization
 #============================
 func _ready():
+    
     # Initialize the item_pickup_ui with the correct node path
     item_pickup_ui = $"../CanvasLayer/ItemPickupUI"
     if item_pickup_ui == null:
@@ -34,29 +39,48 @@ func _ready():
     # Connect the hat pickup signal
     var hat_pickup = $"../HatPickup"  # Adjust to your hat's node path
     if hat_pickup:
-        print("Connecting hat_picked_up signal to the Player")
-        hat_pickup.connect("hat_picked_up", Callable(self, "hat_picked_up"))
+        print("Connecting hat_picked_up signal to the Player.")
+        if not hat_pickup.is_connected("hat_picked_up", Callable(self, "hat_picked_up")):
+            hat_pickup.connect("hat_picked_up", Callable(self, "hat_picked_up"))
     else:
-        print("Hat pickup node not found!")
+        print("Error: Hat pickup node not found!")
+        
+    
+    update_ui_visibility()
+    print("ui_element:", ui_element)
+    if ui_element == null:
+        print("Error: Failed to find ItemPickupUI. Check the node path.")
+    else:
+        print("ItemPickupUI successfully assigned.")
+    update_ui_visibility()
 
     # Connect other pickup objects
-    var noodles = $"../Noodles"
-    var screwdriver = $"../Screwdriver"
-    var toilet_paper = $"../ToiletPaper"
+    connect_pickup_object($"../Noodles", "Noodles")
+    connect_pickup_object($"../Screwdriver", "Screwdriver")
+    connect_pickup_object($"../ToiletPaper", "ToiletPaper")
 
-    if noodles:
-        add_pickup_object(noodles)
-    if screwdriver:
-        add_pickup_object(screwdriver)
-    if toilet_paper:
-        add_pickup_object(toilet_paper)
+# Helper function for connecting pickup objects
+func connect_pickup_object(pickup_node, name: String):
+    if pickup_node:
+        print("Connecting", name, "pickup object signal to the Player.")
+        add_pickup_object(pickup_node)
+    else:
+        print("Error:", name, "pickup object not found!")
+        
+        
+
+
+    
+
 
 #============================
 #       Pickup Logic
 #============================
 func add_pickup_object(pickup_object):
-    print("Connecting pickup object signal to the Player")
-    pickup_object.connect("picked_up", Callable(self, "_on_pickup_object_picked_up"))
+    print("Connecting pickup object signal to the Player for:", pickup_object.name)
+    var connected = pickup_object.connect("picked_up", Callable(self, "_on_pickup_object_picked_up"))
+    print("Signal connection result for", pickup_object.name, ":", connected)
+
 
 func _on_pickup_object_picked_up(object_name: String) -> void:
     if has_pickup:
@@ -68,7 +92,10 @@ func _on_pickup_object_picked_up(object_name: String) -> void:
     current_pickup_item = object_name  # Store the name of the collected object
     print("has_pickup is now:", has_pickup)
     print("Current pickup item:", current_pickup_item)
-    show_pickup_ui()
+    UI_open = true
+    
+    
+
 
 func has_pickup_item() -> bool:
     print("has_pickup_item() called, returning:", has_pickup)
@@ -84,19 +111,7 @@ func remove_pickup_item():
     has_pickup = false  # Ensure this is properly reset
     print("has_pickup is now:", has_pickup)
 
-func show_pickup_ui():
-    if item_pickup_ui == null:
-        print("Error: ItemPickupUI is null!")
-        return
-    item_pickup_ui.visible = true  # Ensure the UI is visible
-    print("ItemPickupUI is now visible.")
-    
-  
 
-func _hide_pickup_ui():
-    if item_pickup_ui:
-        item_pickup_ui.visible = false
-        print("ItemPickupUI is now hidden.")
 
 
 
@@ -164,6 +179,7 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
     handle_animation()
     handle_flip()
+    update_ui_visibility()
 
 func handle_animation() -> void:
     if input.x == 0 and input.y == 0:
@@ -183,3 +199,20 @@ func handle_flip() -> void:
     if round(input.x) != direction:
         direction *= -1
         visuals.scale.x = direction
+
+
+
+
+func update_ui_visibility():
+    if ui_element == null:
+        print("Error: ui_element is null. Check node path.")
+        return
+    ui_element.visible = UI_open
+
+        
+        
+
+# Example function to toggle the UI state
+func toggle_ui():
+    UI_open = !UI_open
+    update_ui_visibility()
