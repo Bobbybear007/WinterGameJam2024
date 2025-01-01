@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://d1cdwd8wp1gg4" path="res://Scenes/Objects/Hat.tscn" id="12_vig5d"]
 [ext_resource type="AudioStream" uid="uid://cmcalaveueyy2" path="res://Audio/SFX/stunned_02-99826.mp3" id="14_8d3ub"]
 [ext_resource type="Texture2D" uid="uid://pehextc7h780" path="res://Sprites/Map/Props/Erdogan.png" id="15_weodf"]
-[ext_resource type="AudioStream" uid="uid://c304pdhemwrhp" path="res://Audio/SFX/Footstep 1.wav" id="17_5avos"]
+[ext_resource type="AudioStream" uid="uid://c304pdhemwrhp" path="res://Audio/SFX/Footsteps_Player/Footstep 1.wav" id="17_5avos"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mskil"]
 texture = ExtResource("1_o2vaq")
