@@ -189,6 +189,10 @@ stream = ExtResource("14_8d3ub")
 [node name="HatPickup" parent="Stuff" instance=ExtResource("12_vig5d")]
 position = Vector2(-1347, -592)
 
+[node name="Prisoner4" parent="Stuff" instance=ExtResource("8_a7k7r")]
+position = Vector2(112, -204)
+required_object = "None"
+
 [node name="EnvironmentalFactors" type="Node2D" parent="."]
 
 [node name="Guard1" parent="." instance=ExtResource("7_ox4oq")]
@@ -338,10 +342,28 @@ texture = ExtResource("13_gwww0")
 position = Vector2(429, -247)
 
 [node name="Guard5" parent="." instance=ExtResource("7_ox4oq")]
-position = Vector2(16, -247)
+position = Vector2(16, -250)
 
 [node name="Guard6" parent="." instance=ExtResource("8_sig7y")]
 position = Vector2(132, -4)
 
 [node name="Guard7" parent="." instance=ExtResource("9_b5te5")]
 position = Vector2(2, 133)
+
+[node name="Prisoner" parent="." instance=ExtResource("8_a7k7r")]
+position = Vector2(-92, -518)
+
+[node name="Prisoner2" parent="." instance=ExtResource("8_a7k7r")]
+position = Vector2(101, -397)
+
+[node name="Prisoner3" parent="." instance=ExtResource("8_a7k7r")]
+position = Vector2(230, -207)
+
+[node name="Prisoner4" parent="." instance=ExtResource("8_a7k7r")]
+position = Vector2(390, -287)
+
+[node name="Prisoner5" parent="." instance=ExtResource("8_a7k7r")]
+position = Vector2(-217, -291)
+
+[node name="Prisoner6" parent="." instance=ExtResource("8_a7k7r")]
+position = Vector2(-94, -425)
