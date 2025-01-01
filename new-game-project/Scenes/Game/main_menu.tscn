@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8mfvqnht1vcx"]
+
+[ext_resource type="Script" path="res://_Scripts/MainMenu.gd" id="1_g7ien"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kckqt"]
+bg_color = Color(0.804743, 0.804743, 0.804743, 1)
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_g7ien")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kckqt")
+
+[node name="Title" type="RichTextLabel" parent="CanvasLayer/Control/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -256.0
+offset_top = 64.0
+offset_right = 8.0
+offset_bottom = 88.0
+grow_horizontal = 2
+scale = Vector2(2, 2)
+text = "Mr. Brown's Smuggling Operation"
+scroll_active = false
+
+[node name="Play" type="Button" parent="CanvasLayer/Control/Panel"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.414815
+anchor_right = 0.608333
+anchor_bottom = 0.472222
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play"
+metadata/_edit_use_anchors_ = true
+
+[node name="Quit" type="Button" parent="CanvasLayer/Control/Panel"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.518519
+anchor_right = 0.608333
+anchor_bottom = 0.575926
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="button_down" from="CanvasLayer/Control/Panel/Play" to="." method="_on_play_button_down"]
+[connection signal="button_down" from="CanvasLayer/Control/Panel/Quit" to="." method="_on_quit_button_down"]
