@@ -1,9 +1,12 @@
-[gd_resource type="AudioBusLayout" format=3 uid="uid://dkke2tiudqp0b"]
+[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://dkke2tiudqp0b"]
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_buta5"]
+resource_name = "Reverb"
 
 [resource]
 bus/1/name = &"SFX"
 bus/1/solo = false
-bus/1/mute = true
+bus/1/mute = false
 bus/1/bypass_fx = false
 bus/1/volume_db = 0.0
 bus/1/send = &"Master"
@@ -13,3 +16,11 @@ bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = 0.0
 bus/2/send = &"Master"
+bus/3/name = &"Footsteps"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 0.0
+bus/3/send = &"SFX"
+bus/3/effect/0/effect = SubResource("AudioEffectReverb_buta5")
+bus/3/effect/0/enabled = false

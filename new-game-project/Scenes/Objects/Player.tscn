@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b27axkf8tefyp" path="res://Sprites/Player/PlayerHatSpriteSheet.png" id="2_65e5a"]
 [ext_resource type="Texture2D" uid="uid://cxowdlfwalm0n" path="res://Sprites/Player/PlayerBaseSpriteSheet.png" id="3_0ejhq"]
 [ext_resource type="Texture2D" uid="uid://cmbgf8fvj4p1j" path="res://Sprites/Player/PlayerJacketSpriteSheet.png" id="4_v531t"]
-[ext_resource type="AudioStream" uid="uid://c304pdhemwrhp" path="res://Audio/SFX/Footstep 1.wav" id="5_05m7t"]
+[ext_resource type="AudioStream" uid="uid://c304pdhemwrhp" path="res://Audio/SFX/Footsteps/Footstep 1.wav" id="5_05m7t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0g2ll"]
 radius = 4.625

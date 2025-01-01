@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://xpd367hlear3"
+path="res://.godot/imported/Footsteps_Concrete 11.wav-f99fd4a3ff29943c0d0111119bd3be14.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/Footsteps/Footsteps_Concrete 11.wav"
+dest_files=["res://.godot/imported/Footsteps_Concrete 11.wav-f99fd4a3ff29943c0d0111119bd3be14.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
