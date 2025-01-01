@@ -352,18 +352,24 @@ position = Vector2(2, 133)
 
 [node name="Prisoner" parent="." instance=ExtResource("8_a7k7r")]
 position = Vector2(-92, -518)
+required_object = "None"
 
 [node name="Prisoner2" parent="." instance=ExtResource("8_a7k7r")]
 position = Vector2(101, -397)
+required_object = "None"
 
 [node name="Prisoner3" parent="." instance=ExtResource("8_a7k7r")]
 position = Vector2(230, -207)
+required_object = "None"
 
 [node name="Prisoner4" parent="." instance=ExtResource("8_a7k7r")]
 position = Vector2(390, -287)
+required_object = "None"
 
 [node name="Prisoner5" parent="." instance=ExtResource("8_a7k7r")]
 position = Vector2(-217, -291)
+required_object = "None"
 
 [node name="Prisoner6" parent="." instance=ExtResource("8_a7k7r")]
 position = Vector2(-94, -425)
+required_object = "None"
