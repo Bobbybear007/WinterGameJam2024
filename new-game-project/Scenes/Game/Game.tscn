@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://cvmbcfl36jsg3"]
+[gd_scene load_steps=24 format=4 uid="uid://cvmbcfl36jsg3"]
 
 [ext_resource type="Texture2D" uid="uid://wcmhoixslwxj" path="res://Sprites/Map/Tileset1_1.png" id="1_o2vaq"]
 [ext_resource type="PackedScene" uid="uid://c58s0v328f1sn" path="res://Scenes/UI/ItemPickupUI.tscn" id="1_v5661"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dduu4d2sxtvmn" path="res://Scenes/Objects/music.tscn" id="11_5wvx4"]
 [ext_resource type="AudioStream" uid="uid://cmcalaveueyy2" path="res://Audio/SFX/stunned_02-99826.mp3" id="14_8d3ub"]
 [ext_resource type="Texture2D" uid="uid://pehextc7h780" path="res://Sprites/Map/Props/Erdogan.png" id="15_weodf"]
+[ext_resource type="AudioStream" uid="uid://c304pdhemwrhp" path="res://Audio/SFX/Footstep 1.wav" id="17_5avos"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mskil"]
 texture = ExtResource("1_o2vaq")
@@ -217,3 +218,7 @@ shape = SubResource("RectangleShape2D_8ohcr")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Geomatry/Barrier"]
 position = Vector2(13, 365)
 shape = SubResource("RectangleShape2D_jflyi")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_5avos")
+bus = &"SFX"

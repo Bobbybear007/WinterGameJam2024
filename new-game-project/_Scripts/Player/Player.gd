@@ -12,7 +12,7 @@ extends CharacterBody2D
 @onready var item_pickup_ui: ContainerSelection = null  # Initialize as null to handle assignment dynamically
 @export var total_items_to_deliver: int = 3  # Total number of items to deliver
 @onready var ui_element = $"../CanvasLayer/ItemPickupUI"
-@onready var player_walking_audiostream_ = $AudioStreamPlayer_Walking
+@onready var player_walking_audiostream = $AudioStreamPlayer_Walking
 
 
 var has_pickup = false
@@ -171,9 +171,12 @@ func drop_hat() -> void:
 func get_input() -> void:
 	input = Input.get_vector("Left", "Right", "Up", "Down")
 	velocity = input * speed
-	if is_on_floor():
+	if velocity.length()>0:
 		if !player_walking_audiostream.playing:
-		player_walking_audiostream.play()
+			player_walking_audiostream.play()
+	else:
+		player_walking_audiostream.stop()
+	
 	
 func _physics_process(delta: float) -> void:
 	get_input()
