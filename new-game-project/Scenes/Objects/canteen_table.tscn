@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bntwb8jw80fs7"]
+
+[ext_resource type="Texture2D" uid="uid://bjnr41ggj1ucj" path="res://Sprites/Map/Props/Table.png" id="1_qtbkd"]
+[ext_resource type="Texture2D" uid="uid://cmhk53o3uujwo" path="res://Sprites/Map/Props/Bench.png" id="2_v3chx"]
+
+[node name="CanteenTable" type="Sprite2D"]
+texture = ExtResource("1_qtbkd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-14, 9)
+texture = ExtResource("2_v3chx")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(11, 9)
+texture = ExtResource("2_v3chx")
