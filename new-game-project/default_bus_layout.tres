@@ -1,7 +1,22 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://dkke2tiudqp0b"]
+[gd_resource type="AudioBusLayout" load_steps=4 format=3 uid="uid://dkke2tiudqp0b"]
 
-[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_buta5"]
+[sub_resource type="AudioEffectHighPassFilter" id="AudioEffectHighPassFilter_86ld3"]
+resource_name = "HighPassFilter"
+cutoff_hz = 120.0
+db = 3
+
+[sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_hthd7"]
+resource_name = "Amplify"
+volume_db = 5.62
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_322u2"]
 resource_name = "Reverb"
+predelay_msec = 35.0
+predelay_feedback = 0.1
+room_size = 0.1
+damping = 0.25
+hipass = 0.15
+wet = 0.1
 
 [resource]
 bus/1/name = &"SFX"
@@ -16,11 +31,21 @@ bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = 0.0
 bus/2/send = &"Master"
-bus/3/name = &"Footsteps"
+bus/3/name = &"player_footsteps"
 bus/3/solo = false
 bus/3/mute = false
 bus/3/bypass_fx = false
-bus/3/volume_db = 0.0
-bus/3/send = &"SFX"
-bus/3/effect/0/effect = SubResource("AudioEffectReverb_buta5")
-bus/3/effect/0/enabled = false
+bus/3/volume_db = -6.25101
+bus/3/send = &"Master"
+bus/3/effect/0/effect = SubResource("AudioEffectHighPassFilter_86ld3")
+bus/3/effect/0/enabled = true
+bus/4/name = &"guard_footsteps"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = 3.63801
+bus/4/send = &"Master"
+bus/4/effect/0/effect = SubResource("AudioEffectAmplify_hthd7")
+bus/4/effect/0/enabled = true
+bus/4/effect/1/effect = SubResource("AudioEffectReverb_322u2")
+bus/4/effect/1/enabled = true

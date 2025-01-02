@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://57hdao56new6"
+path="res://.godot/imported/Footsteps_Guards 2.wav-534342d8acff95d84a3a73ca09c42afa.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/Guard_Footsteps/Footsteps_Guards 2.wav"
+dest_files=["res://.godot/imported/Footsteps_Guards 2.wav-534342d8acff95d84a3a73ca09c42afa.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
