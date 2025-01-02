@@ -229,6 +229,7 @@ position = Vector2(132, -4)
 position = Vector2(2, 133)
 
 [node name="Music" parent="." instance=ExtResource("11_5wvx4")]
+bus = &"MUSIC"
 
 [node name="Geomatry" type="Node2D" parent="."]
 
@@ -292,7 +293,7 @@ shape = SubResource("RectangleShape2D_1cc3w")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_5avos")
-bus = &"SFX"
+bus = &"player_footsteps"
 
 [node name="Set Dressing" type="Node2D" parent="."]
 

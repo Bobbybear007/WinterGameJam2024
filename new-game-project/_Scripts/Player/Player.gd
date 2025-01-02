@@ -14,6 +14,8 @@ extends CharacterBody2D
 @onready var ui_element = $"../CanvasLayer/ItemPickupUI"
 @onready var player_walking_audiostream = $AudioStreamPlayer_Walking
 
+@onready var item_pickup_sound = $audio_item_pickup
+
 
 var has_pickup = false
 var current_pickup_item: String = ""  # Holds the name of the currently picked-up object
@@ -93,6 +95,8 @@ func _on_pickup_object_picked_up(object_name: String) -> void:
 	print("has_pickup is now:", has_pickup)
 	print("Current pickup item:", current_pickup_item)
 	UI_open = true
+	
+	item_pickup_sound.play()
 	
 	
 

@@ -110,8 +110,10 @@ debug_color = Color(0, 0.6, 0.701961, 0.188235)
 
 [node name="Footsteps_Guard" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_f0cbl")
+pitch_scale = 0.92
 max_distance = 150.0
-panning_strength = 2.0
+attenuation = 1.5
+panning_strength = 2.5
 bus = &"guard_footsteps"
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
