@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://d0krrnsfuycw2"]
+[gd_scene load_steps=2 format=3 uid="uid://d0krrnsfuycw2"]
+
+[ext_resource type="Texture2D" uid="uid://bg1061ia6th6a" path="res://Sprites/MainMenu/Title.png" id="2_dnq3f"]
 
 [node name="MainMenu" type="Node2D"]
 
@@ -19,3 +21,15 @@ offset_right = 920.0
 offset_bottom = 504.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+scale = Vector2(5, 5)
+texture = ExtResource("2_dnq3f")
