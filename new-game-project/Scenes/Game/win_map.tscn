@@ -1,6 +1,39 @@
-[gd_scene load_steps=2 format=3 uid="uid://8a1qr48qoem"]
+[gd_scene load_steps=10 format=4 uid="uid://8a1qr48qoem"]
 
-[ext_resource type="Texture2D" uid="uid://b316vhrvje1vr" path="res://Sprites/icon/Goodicon.png" id="1_gcukv"]
+[ext_resource type="TileSet" uid="uid://bfxkptj17u2nu" path="res://Tilesets/tileset.tres" id="2_glyg8"]
+[ext_resource type="Texture2D" uid="uid://cxowdlfwalm0n" path="res://Sprites/Player/PlayerBaseSpriteSheet.png" id="2_lffla"]
+[ext_resource type="Texture2D" uid="uid://bg5ktrbs13o6h" path="res://Sprites/UI/Sun.png" id="3_j6cru"]
+[ext_resource type="Texture2D" uid="uid://dcuqlcjc3c8ie" path="res://Sprites/UI/Land.png" id="4_eyr7c"]
+[ext_resource type="AudioStream" uid="uid://dunc0kdv34dv4" path="res://Audio/Music/GameOver_Win.wav" id="5_3t13d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_katvn"]
+atlas = ExtResource("2_lffla")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbicc"]
+atlas = ExtResource("2_lffla")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h26km"]
+atlas = ExtResource("2_lffla")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1rquu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_katvn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sbicc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h26km")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Win_map" type="Node2D"]
 
@@ -9,18 +42,34 @@ offset_left = -17255.0
 offset_top = -11359.0
 offset_right = 15716.0
 offset_bottom = 11614.0
-color = Color(0.196078, 0.439216, 0.266667, 1)
-
-[node name="Goodicon" type="Sprite2D" parent="."]
-position = Vector2(-1, 0)
-texture = ExtResource("1_gcukv")
+color = Color(0.458247, 0.795777, 1, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.03, 2.03)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = -211.0
-offset_top = -112.0
-offset_right = 218.0
-offset_bottom = 21.0
-text = "You succesfully smuggled all objects into the prison!!!!"
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = 1
+rotation = -1.5708
+scale = Vector2(6.71, 6.71)
+tile_map_data = PackedByteArray("AAABAP7/AAAEAAMAAAAAAP7/AAAEAAMAAAD///7/AAAEAAMAAAD+//7/AAAEAAMAAAABAAIAAAAEAAMAAAAAAAIAAAAEAAMAAAD//wIAAAAEAAMAAAD+/wIAAAAEAAMAAAA=")
+tile_set = ExtResource("2_glyg8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 2
+position = Vector2(-7.00002, 73)
+scale = Vector2(10.625, 10.625)
+sprite_frames = SubResource("SpriteFrames_1rquu")
+
+[node name="Sun" type="Sprite2D" parent="."]
+position = Vector2(168, -133)
+scale = Vector2(10.5263, 10.5263)
+texture = ExtResource("3_j6cru")
+
+[node name="Land" type="Sprite2D" parent="."]
+position = Vector2(-4, 7)
+scale = Vector2(6.4, 6.4)
+texture = ExtResource("4_eyr7c")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_3t13d")
+autoplay = true
