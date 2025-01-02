@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://16a7ikxpkula" path="res://Tilesets/RoadTilemap.png" id="2_n4aak"]
 [ext_resource type="PackedScene" uid="uid://h32nfom7afhq" path="res://Scenes/Objects/Screwdriver.tscn" id="5_grny6"]
 [ext_resource type="PackedScene" uid="uid://bsspxn8enisc4" path="res://Scenes/Objects/Noodles.tscn" id="6_gjttt"]
-[ext_resource type="PackedScene" uid="uid://bhe2l5q1yqmfg" path="res://Scenes/Objects/ToiletPaper.tscn" id="6_qt4k2"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/ToiletPaper.tscn" id="6_qt4k2"]
 [ext_resource type="PackedScene" uid="uid://dux87xjd7rkfi" path="res://Scenes/Objects/Guard1.tscn" id="7_ox4oq"]
 [ext_resource type="PackedScene" uid="uid://b6dj5rn80bsut" path="res://Scenes/Objects/Prisoner.tscn" id="8_a7k7r"]
 [ext_resource type="PackedScene" uid="uid://dt6slm4n4d0ch" path="res://Scenes/Objects/Guard2.tscn" id="8_sig7y"]
