@@ -1,22 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://dt6slm4n4d0ch"]
+[gd_scene load_steps=15 format=3 uid="uid://dt6slm4n4d0ch"]
 
 [ext_resource type="Script" path="res://_Scripts/Enemy/enemy.gd" id="1_tqf6t"]
 [ext_resource type="Texture2D" uid="uid://cpalalcg2ywel" path="res://Sprites/Guards/Guard2.png" id="2_grdm1"]
-[ext_resource type="AudioStream" uid="uid://57hdao56new6" path="res://Audio/SFX/Guard_Footsteps/Footsteps_Guards 2.wav" id="3_ugy6l"]
-[ext_resource type="AudioStream" uid="uid://dqspnevxdknrc" path="res://Audio/SFX/Guard_Footsteps/Footsteps_Guards 3.wav" id="4_6p66s"]
-[ext_resource type="AudioStream" uid="uid://dxgm8yq5oe52r" path="res://Audio/SFX/Guard_Footsteps/Footsteps_Guards 12.wav" id="5_ngp7a"]
-[ext_resource type="AudioStream" uid="uid://cubgai2m30y3k" path="res://Audio/SFX/Guard_Footsteps/Footsteps_Guards 13.wav" id="6_prpu5"]
-[ext_resource type="AudioStream" uid="uid://btljmtuadux7n" path="res://Audio/SFX/Guard_Footsteps/Footsteps_Guards 14.wav" id="7_ll5x4"]
-[ext_resource type="AudioStream" uid="uid://cen7hk48n4qp0" path="res://Audio/SFX/Guard_Footsteps/Footsteps_Guards 15.wav" id="8_yx5e5"]
-[ext_resource type="AudioStream" uid="uid://cscc0ch3ac3b5" path="res://Audio/SFX/Guard_Footsteps/Footsteps_Guards 16.wav" id="9_6klpd"]
-[ext_resource type="AudioStream" uid="uid://q8hhxr7vh0od" path="res://Audio/SFX/Guard_Footsteps/Footsteps_Guards 4.wav" id="10_t0uqn"]
-[ext_resource type="AudioStream" uid="uid://bl62h3bopgagh" path="res://Audio/SFX/Guard_Footsteps/Footsteps_Guards 5.wav" id="11_vvj5h"]
-[ext_resource type="AudioStream" uid="uid://bcdd4fkua3a4d" path="res://Audio/SFX/Guard_Footsteps/Footsteps_Guards 6.wav" id="12_m7mlj"]
-[ext_resource type="AudioStream" uid="uid://bcb8hxvi2csta" path="res://Audio/SFX/Guard_Footsteps/Footsteps_Guards 7.wav" id="13_grqnp"]
-[ext_resource type="AudioStream" uid="uid://c6kxdv1edpt0k" path="res://Audio/SFX/Guard_Footsteps/Footsteps_Guards 8.wav" id="14_jfjcr"]
-[ext_resource type="AudioStream" uid="uid://pnptjgd6lq0p" path="res://Audio/SFX/Guard_Footsteps/Footsteps_Guards 9.wav" id="15_w6w4o"]
-[ext_resource type="AudioStream" uid="uid://b068h2dd0vq6c" path="res://Audio/SFX/Guard_Footsteps/Footsteps_Guards 10.wav" id="16_85h8d"]
-[ext_resource type="AudioStream" uid="uid://4k5o3b2u1nf4" path="res://Audio/SFX/Guard_Footsteps/Footsteps_Guards 11.wav" id="17_ne5sa"]
+[ext_resource type="AudioStream" uid="uid://dlc8odnf3bo6k" path="res://Audio/SFX/Guard_Footsteps/Guard_footsteps.wav" id="3_f0cbl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jhp3a"]
 radius = 4.0
@@ -88,26 +74,6 @@ radius = 15.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_1jtuq"]
 radius = 85.0941
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_lbulc"]
-random_pitch = 1.3
-random_volume_offset_db = 0.4
-streams_count = 15
-stream_0/stream = ExtResource("3_ugy6l")
-stream_1/stream = ExtResource("4_6p66s")
-stream_2/stream = ExtResource("10_t0uqn")
-stream_3/stream = ExtResource("11_vvj5h")
-stream_4/stream = ExtResource("12_m7mlj")
-stream_5/stream = ExtResource("13_grqnp")
-stream_6/stream = ExtResource("14_jfjcr")
-stream_7/stream = ExtResource("15_w6w4o")
-stream_8/stream = ExtResource("16_85h8d")
-stream_9/stream = ExtResource("17_ne5sa")
-stream_10/stream = ExtResource("5_ngp7a")
-stream_11/stream = ExtResource("6_prpu5")
-stream_12/stream = ExtResource("7_ll5x4")
-stream_13/stream = ExtResource("8_yx5e5")
-stream_14/stream = ExtResource("9_6klpd")
-
 [node name="Guard2" type="CharacterBody2D"]
 script = ExtResource("1_tqf6t")
 
@@ -143,10 +109,9 @@ shape = SubResource("CircleShape2D_1jtuq")
 debug_color = Color(0, 0.6, 0.701961, 0.188235)
 
 [node name="Footsteps_Guard" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource("AudioStreamRandomizer_lbulc")
-autoplay = true
-max_distance = 300.0
-panning_strength = 1.2
+stream = ExtResource("3_f0cbl")
+max_distance = 150.0
+panning_strength = 2.0
 bus = &"guard_footsteps"
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]

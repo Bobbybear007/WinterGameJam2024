@@ -174,6 +174,8 @@ func _start_moving(initial: bool = false) -> void:
 
 func _on_movement_timeout() -> void:
 	_start_idling()
+	footsteps_guard.stop()
+	
 
 func _start_idling(initial: bool = false) -> void:
 	current_state = State.IDLE
