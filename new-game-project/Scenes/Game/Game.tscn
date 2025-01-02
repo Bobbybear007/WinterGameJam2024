@@ -116,7 +116,7 @@ tile_set = SubResource("TileSet_wmjwv")
 [node name="Stuff" type="Node2D" parent="."]
 
 [node name="Noodles" parent="Stuff" instance=ExtResource("6_gjttt")]
-position = Vector2(-68, -21)
+position = Vector2(314, -301)
 
 [node name="Screwdriver" parent="Stuff" instance=ExtResource("5_grny6")]
 position = Vector2(-19, -528)
@@ -126,7 +126,7 @@ position = Vector2(-47, -164)
 object_name = "ToiletPaper"
 
 [node name="Player" parent="Stuff" instance=ExtResource("1_y5b83")]
-position = Vector2(26, 294)
+position = Vector2(16, 283)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Stuff"]
 
@@ -137,6 +137,7 @@ offset_right = -36.0
 offset_bottom = 262.0
 
 [node name="Prisoner" parent="Stuff" instance=ExtResource("8_a7k7r")]
+visible = false
 position = Vector2(-375, -291)
 required_object = "ToiletPaper"
 
@@ -153,6 +154,7 @@ scale = Vector2(0.671875, 0.671875)
 texture = ExtResource("10_31e4d")
 
 [node name="Prisoner2" parent="Stuff" instance=ExtResource("8_a7k7r")]
+visible = false
 position = Vector2(33, -479)
 required_object = "Noodles"
 
@@ -169,6 +171,7 @@ scale = Vector2(0.71875, 0.71875)
 texture = ExtResource("11_jwtmf")
 
 [node name="Prisoner3" parent="Stuff" instance=ExtResource("8_a7k7r")]
+visible = false
 position = Vector2(119, -162)
 required_object = "Screwdriver"
 
@@ -191,6 +194,7 @@ stream = ExtResource("14_8d3ub")
 position = Vector2(-1347, -592)
 
 [node name="Prisoner4" parent="Stuff" instance=ExtResource("8_a7k7r")]
+visible = false
 position = Vector2(112, -204)
 required_object = "None"
 
@@ -205,16 +209,29 @@ position = Vector2(100, -521)
 
 [node name="EnvironmentalFactors" type="Node2D" parent="."]
 
-[node name="Guard1" parent="." instance=ExtResource("7_ox4oq")]
-position = Vector2(-136, -68)
+[node name="Guards" type="Node2D" parent="."]
+visible = false
 
-[node name="Guard2" parent="." instance=ExtResource("8_sig7y")]
+[node name="Guard1" parent="Guards" instance=ExtResource("7_ox4oq")]
+position = Vector2(-147, -74)
+
+[node name="Guard2" parent="Guards" instance=ExtResource("8_sig7y")]
 position = Vector2(-6, -378)
 
-[node name="Guard3" parent="." instance=ExtResource("9_b5te5")]
-position = Vector2(-392, -247)
+[node name="Guard3" parent="Guards" instance=ExtResource("9_b5te5")]
+position = Vector2(-237, -250)
 
-[node name="Guards" type="Node2D" parent="."]
+[node name="Guard4" parent="Guards" instance=ExtResource("8_sig7y")]
+position = Vector2(429, -247)
+
+[node name="Guard5" parent="Guards" instance=ExtResource("7_ox4oq")]
+position = Vector2(16, -250)
+
+[node name="Guard6" parent="Guards" instance=ExtResource("8_sig7y")]
+position = Vector2(132, -4)
+
+[node name="Guard7" parent="Guards" instance=ExtResource("9_b5te5")]
+position = Vector2(2, 133)
 
 [node name="Music" parent="." instance=ExtResource("11_5wvx4")]
 
@@ -348,44 +365,38 @@ texture = ExtResource("13_gwww0")
 position = Vector2(376, -190)
 texture = ExtResource("13_gwww0")
 
-[node name="Guard4" parent="." instance=ExtResource("8_sig7y")]
-position = Vector2(429, -247)
+[node name="CanteenTable" parent="Set Dressing" instance=ExtResource("15_ruab0")]
+position = Vector2(160, -138)
 
-[node name="Guard5" parent="." instance=ExtResource("7_ox4oq")]
-position = Vector2(16, -250)
-
-[node name="Guard6" parent="." instance=ExtResource("8_sig7y")]
-position = Vector2(132, -4)
-
-[node name="Guard7" parent="." instance=ExtResource("9_b5te5")]
-position = Vector2(2, 133)
+[node name="CanteenTable2" parent="Set Dressing" instance=ExtResource("15_ruab0")]
+position = Vector2(160, -200)
 
 [node name="Prisoner" parent="." instance=ExtResource("8_a7k7r")]
+visible = false
 position = Vector2(-92, -518)
 required_object = "None"
 
 [node name="Prisoner2" parent="." instance=ExtResource("8_a7k7r")]
+visible = false
 position = Vector2(101, -397)
 required_object = "None"
 
 [node name="Prisoner3" parent="." instance=ExtResource("8_a7k7r")]
+visible = false
 position = Vector2(230, -207)
 required_object = "None"
 
 [node name="Prisoner4" parent="." instance=ExtResource("8_a7k7r")]
+visible = false
 position = Vector2(390, -287)
 required_object = "None"
 
 [node name="Prisoner5" parent="." instance=ExtResource("8_a7k7r")]
+visible = false
 position = Vector2(-217, -291)
 required_object = "None"
 
 [node name="Prisoner6" parent="." instance=ExtResource("8_a7k7r")]
+visible = false
 position = Vector2(-94, -425)
 required_object = "None"
-
-[node name="CanteenTable" parent="." instance=ExtResource("15_ruab0")]
-position = Vector2(160, -138)
-
-[node name="CanteenTable2" parent="." instance=ExtResource("15_ruab0")]
-position = Vector2(160, -200)
