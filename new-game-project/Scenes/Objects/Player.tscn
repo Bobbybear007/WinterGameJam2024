@@ -259,4 +259,4 @@ color = Color(0, 0, 0, 1)
 
 [node name="AudioStreamPlayer_Walking" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_3w6aj")
-bus = &"SFX"
+bus = &"player_footsteps"

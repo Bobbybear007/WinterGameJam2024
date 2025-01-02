@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8mfvqnht1vcx"]
+[gd_scene load_steps=4 format=3 uid="uid://b8mfvqnht1vcx"]
 
 [ext_resource type="Script" path="res://_Scripts/MainMenu.gd" id="1_g7ien"]
+[ext_resource type="Texture2D" uid="uid://bg1061ia6th6a" path="res://Sprites/MainMenu/Title.png" id="2_dnq3f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kckqt"]
 bg_color = Color(0.804743, 0.804743, 0.804743, 1)
@@ -27,19 +28,18 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_kckqt")
 
-[node name="Title" type="RichTextLabel" parent="CanvasLayer/Control/Panel"]
+[node name="Title" type="TextureRect" parent="CanvasLayer/Control/Panel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -256.0
-offset_top = 64.0
-offset_right = 8.0
-offset_bottom = 88.0
+offset_left = -320.0
+offset_top = -16.0
+offset_right = -192.0
+offset_bottom = 48.0
 grow_horizontal = 2
-scale = Vector2(2, 2)
-text = "Mr. Brown's Smuggling Operation"
-scroll_active = false
+scale = Vector2(5, 5)
+texture = ExtResource("2_dnq3f")
 
 [node name="Play" type="Button" parent="CanvasLayer/Control/Panel"]
 custom_minimum_size = Vector2(200, 0)

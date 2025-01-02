@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b05l1qyk1x8ov"
+path="res://.godot/imported/Zipper sounds 2.wav-5261b01e2d53ed30b34512ace2b1d0a4.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/Zipper/Zipper sounds 2.wav"
+dest_files=["res://.godot/imported/Zipper sounds 2.wav-5261b01e2d53ed30b34512ace2b1d0a4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
