@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=4 uid="uid://8a1qr48qoem"]
+[gd_scene load_steps=11 format=4 uid="uid://8a1qr48qoem"]
 
+[ext_resource type="Script" path="res://_Scripts/win_map.gd" id="1_7uusg"]
 [ext_resource type="TileSet" uid="uid://bfxkptj17u2nu" path="res://Tilesets/tileset.tres" id="2_glyg8"]
 [ext_resource type="Texture2D" uid="uid://cxowdlfwalm0n" path="res://Sprites/Player/PlayerBaseSpriteSheet.png" id="2_lffla"]
 [ext_resource type="Texture2D" uid="uid://bg5ktrbs13o6h" path="res://Sprites/UI/Sun.png" id="3_j6cru"]
@@ -36,6 +37,7 @@ animations = [{
 }]
 
 [node name="Win_map" type="Node2D"]
+script = ExtResource("1_7uusg")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -17255.0

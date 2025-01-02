@@ -37,19 +37,20 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -288.0
-offset_right = -160.0
-offset_bottom = 64.0
+offset_left = -323.0
+offset_top = -1.0
+offset_right = -195.0
+offset_bottom = 63.0
 grow_horizontal = 2
 scale = Vector2(5, 5)
 texture = ExtResource("2_dnq3f")
 
 [node name="Play" type="Button" parent="CanvasLayer/Control/Panel"]
 layout_mode = 0
-offset_left = 384.0
-offset_top = 256.0
-offset_right = 640.0
-offset_bottom = 316.0
+offset_left = 349.0
+offset_top = 255.0
+offset_right = 605.0
+offset_bottom = 315.0
 flat = true
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/Panel/Play"]
@@ -62,10 +63,11 @@ grow_vertical = 2
 texture = ExtResource("3_rggrr")
 
 [node name="Quit" type="Button" parent="CanvasLayer/Control/Panel"]
-offset_left = 384.0
-offset_top = 336.0
-offset_right = 640.0
-offset_bottom = 396.0
+layout_mode = 0
+offset_left = 349.0
+offset_top = 335.0
+offset_right = 605.0
+offset_bottom = 395.0
 flat = true
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/Panel/Quit"]
