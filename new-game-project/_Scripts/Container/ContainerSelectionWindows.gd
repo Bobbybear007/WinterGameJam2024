@@ -9,11 +9,6 @@ var final_container = null
 func _ready() -> void:
 	hide_panel()
 
-func _process(delta: float) -> void:
-	# Temporary call
-	if Input.is_key_pressed(KEY_SPACE):
-		display_panel()
-
 func display_panel() -> void:
 	Engine.time_scale = 0
 	panel.visible = true
