@@ -137,7 +137,6 @@ offset_right = -36.0
 offset_bottom = 262.0
 
 [node name="Prisoner" parent="Stuff" instance=ExtResource("8_a7k7r")]
-visible = false
 position = Vector2(-375, -291)
 required_object = "ToiletPaper"
 
@@ -154,7 +153,6 @@ scale = Vector2(0.671875, 0.671875)
 texture = ExtResource("10_31e4d")
 
 [node name="Prisoner2" parent="Stuff" instance=ExtResource("8_a7k7r")]
-visible = false
 position = Vector2(33, -479)
 required_object = "Noodles"
 
@@ -171,7 +169,6 @@ scale = Vector2(0.71875, 0.71875)
 texture = ExtResource("11_jwtmf")
 
 [node name="Prisoner3" parent="Stuff" instance=ExtResource("8_a7k7r")]
-visible = false
 position = Vector2(119, -162)
 required_object = "Screwdriver"
 
@@ -194,7 +191,6 @@ stream = ExtResource("14_8d3ub")
 position = Vector2(-1347, -592)
 
 [node name="Prisoner4" parent="Stuff" instance=ExtResource("8_a7k7r")]
-visible = false
 position = Vector2(112, -204)
 required_object = "None"
 
@@ -210,7 +206,6 @@ position = Vector2(100, -521)
 [node name="EnvironmentalFactors" type="Node2D" parent="."]
 
 [node name="Guards" type="Node2D" parent="."]
-visible = false
 
 [node name="Guard1" parent="Guards" instance=ExtResource("7_ox4oq")]
 position = Vector2(-147, -74)
@@ -372,31 +367,25 @@ position = Vector2(160, -138)
 position = Vector2(160, -200)
 
 [node name="Prisoner" parent="." instance=ExtResource("8_a7k7r")]
-visible = false
 position = Vector2(-92, -518)
 required_object = "None"
 
 [node name="Prisoner2" parent="." instance=ExtResource("8_a7k7r")]
-visible = false
 position = Vector2(101, -397)
 required_object = "None"
 
 [node name="Prisoner3" parent="." instance=ExtResource("8_a7k7r")]
-visible = false
 position = Vector2(230, -207)
 required_object = "None"
 
 [node name="Prisoner4" parent="." instance=ExtResource("8_a7k7r")]
-visible = false
 position = Vector2(390, -287)
 required_object = "None"
 
 [node name="Prisoner5" parent="." instance=ExtResource("8_a7k7r")]
-visible = false
 position = Vector2(-217, -291)
 required_object = "None"
 
 [node name="Prisoner6" parent="." instance=ExtResource("8_a7k7r")]
-visible = false
 position = Vector2(-94, -425)
 required_object = "None"
