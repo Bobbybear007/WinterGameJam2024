@@ -177,7 +177,7 @@ func _on_movement_timeout() -> void:
 
 func _start_idling(initial: bool = false) -> void:
 	current_state = State.IDLE
-	footsteps_guard.stop()
+	
 
 	var idle_duration = rng.randf_range(idle_duration_min, idle_duration_max)
 	idle_timer.wait_time = idle_duration
