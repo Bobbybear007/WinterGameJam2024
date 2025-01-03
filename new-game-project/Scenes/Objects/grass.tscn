@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cld7xs0k0rlog"]
+
+[ext_resource type="Script" path="res://_Scripts/audio_area.gd" id="1_1klgb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7rti"]
+size = Vector2(256, 224)
+
+[node name="Grass" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_1klgb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_s7rti")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
