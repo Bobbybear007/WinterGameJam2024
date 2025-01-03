@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://d0krrnsfuycw2"]
+[gd_scene load_steps=9 format=4 uid="uid://d0krrnsfuycw2"]
 
 [ext_resource type="Script" path="res://_Scripts/MainMenu.gd" id="1_g7ien"]
 [ext_resource type="Texture2D" uid="uid://bg1061ia6th6a" path="res://Sprites/MainMenu/Title.png" id="2_dnq3f"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://inf0jkvo6xlr" path="res://Sprites/MainMenu/play_bhutan.png" id="3_rggrr"]
 [ext_resource type="Texture2D" uid="uid://6yd8eqqdwmbe" path="res://Sprites/MainMenu/quat_bhutan.png" id="4_3rvsa"]
 [ext_resource type="Script" path="res://_Scripts/TEEHEEUWU.gd" id="4_gb3wg"]
+[ext_resource type="AudioStream" uid="uid://bu5fpsb2ii00e" path="res://Audio/Music/Mr_Browns_Smuggle_Run.mp3" id="7_p7xgg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4sdwr"]
 bg_color = Color(0, 0, 0, 0.164706)
@@ -87,6 +88,10 @@ speed = 5.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_p7xgg")
+autoplay = true
 
 [connection signal="button_down" from="CanvasLayer/Control/Panel/Play" to="." method="_on_play_button_down"]
 [connection signal="button_down" from="CanvasLayer/Control/Panel/Quit" to="." method="_on_quit_button_down"]
