@@ -399,4 +399,29 @@ required_object = "None"
 [node name="GrassContainer" type="Node2D" parent="."]
 
 [node name="Grass" parent="GrassContainer" instance=ExtResource("24_052yr")]
-position = Vector2(-128, 192)
+position = Vector2(-128, 272)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GrassContainer/Grass"]
+position = Vector2(77, -18)
+polygon = PackedVector2Array(-77, 50, -77, -190, 35, -190, 35, -94, 51, -94, 50, 50)
+
+[node name="Grass2" parent="GrassContainer" instance=ExtResource("24_052yr")]
+position = Vector2(32, 272)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GrassContainer/Grass2"]
+position = Vector2(77, -18)
+polygon = PackedVector2Array(-77, 50, -77, -94, -61, -94, -61, -190, 51, -190, 50, 50)
+
+[node name="Grass3" parent="GrassContainer" instance=ExtResource("24_052yr")]
+position = Vector2(-48, 624)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GrassContainer/Grass3"]
+position = Vector2(77, -18)
+polygon = PackedVector2Array(139, -94, -157, -94, -157, -190, 139, -190)
+
+[node name="Grass4" parent="GrassContainer" instance=ExtResource("24_052yr")]
+position = Vector2(-48, -408)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GrassContainer/Grass4"]
+position = Vector2(77, -18)
+polygon = PackedVector2Array(115, 74, 3, 74, 3, -6, 19, -6, 19, -70, -45, -70, -45, -6, -29, -6, -29, 74, -141, 74, -141, -118, 115, -118)

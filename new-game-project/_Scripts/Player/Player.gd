@@ -185,10 +185,10 @@ func get_input() -> void:
 	input = Input.get_vector("Left", "Right", "Up", "Down")
 	velocity = input * speed
 	if velocity.length()>0:
-		if !player_walking_audiostream.playing:
-			player_walking_audiostream.play()
+		if !current_walking_audiostream.playing:
+			current_walking_audiostream.play()
 	else:
-		player_walking_audiostream.stop()
+		current_walking_audiostream.stop()
 		
 
 	
@@ -249,6 +249,8 @@ func toggle_ui():
 	
 func change_walking_audio_to_grass():
 	current_walking_audiostream = player_grass_walking_audiostream
+	print("GRASS")
 	
 func change_walking_audio_to_concrete():
 	current_walking_audiostream = player_walking_audiostream
+	print("NOT GRASS")
