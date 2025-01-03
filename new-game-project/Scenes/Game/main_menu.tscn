@@ -92,6 +92,7 @@ zoom = Vector2(5, 5)
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_p7xgg")
 autoplay = true
+parameters/looping = false
 
 [connection signal="button_down" from="CanvasLayer/Control/Panel/Play" to="." method="_on_play_button_down"]
 [connection signal="button_down" from="CanvasLayer/Control/Panel/Quit" to="." method="_on_quit_button_down"]

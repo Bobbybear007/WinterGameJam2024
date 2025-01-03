@@ -266,3 +266,5 @@ bus = &"player_footsteps"
 stream = ExtResource("18_2s8ev")
 volume_db = 6.0
 bus = &"SFX"
+
+[node name="audio_item_dropoff" type="AudioStreamPlayer2D" parent="."]

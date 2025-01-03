@@ -15,6 +15,8 @@ extends CharacterBody2D
 @onready var player_walking_audiostream = $AudioStreamPlayer_Walking
 
 @onready var item_pickup_sound = $audio_item_pickup
+@onready var item_drop_sound = $audio_item_dropoff
+
 
 
 var has_pickup = false
@@ -114,6 +116,9 @@ func remove_pickup_item():
     current_pickup_item = ""
     has_pickup = false  # Ensure this is properly reset
     print("has_pickup is now:", has_pickup)
+    item_drop_sound.play()
+    
+   
 
 
 
@@ -180,6 +185,8 @@ func get_input() -> void:
             player_walking_audiostream.play()
     else:
         player_walking_audiostream.stop()
+        
+
     
     
 func _physics_process(delta: float) -> void:
@@ -193,6 +200,12 @@ func _process(delta: float) -> void:
     handle_animation()
     handle_flip()
     update_ui_visibility()
+    
+    if Input.is_action_just_pressed("quit"):
+      get_tree().change_scene_to_file("res://Scenes/Game/main_menu.tscn")
+
+
+
 
 func handle_animation() -> void:
     if input.x == 0 and input.y == 0:
@@ -229,3 +242,10 @@ func update_ui_visibility():
 func toggle_ui():
     UI_open = !UI_open
     update_ui_visibility()
+    
+    
+    
+    
+    
+    
+    
