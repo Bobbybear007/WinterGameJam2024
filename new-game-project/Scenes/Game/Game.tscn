@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://16a7ikxpkula" path="res://Tilesets/RoadTilemap.png" id="2_n4aak"]
 [ext_resource type="PackedScene" uid="uid://h32nfom7afhq" path="res://Scenes/Objects/Screwdriver.tscn" id="5_grny6"]
 [ext_resource type="PackedScene" uid="uid://bsspxn8enisc4" path="res://Scenes/Objects/Noodles.tscn" id="6_gjttt"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/ToiletPaper.tscn" id="6_qt4k2"]
+[ext_resource type="PackedScene" uid="uid://bhe2l5q1yqmfg" path="res://Scenes/Objects/ToiletPaper.tscn" id="6_qt4k2"]
 [ext_resource type="PackedScene" uid="uid://dux87xjd7rkfi" path="res://Scenes/Objects/Guard1.tscn" id="7_ox4oq"]
 [ext_resource type="PackedScene" uid="uid://b6dj5rn80bsut" path="res://Scenes/Objects/Prisoner.tscn" id="8_a7k7r"]
 [ext_resource type="PackedScene" uid="uid://dt6slm4n4d0ch" path="res://Scenes/Objects/Guard2.tscn" id="8_sig7y"]
@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://dithi8wc248my" path="res://Sprites/Items/Screwdriver.png" id="12_c47n5"]
 [ext_resource type="PackedScene" uid="uid://d1cdwd8wp1gg4" path="res://Scenes/Objects/Hat.tscn" id="12_vig5d"]
 [ext_resource type="Texture2D" uid="uid://cevuf5x8kmr28" path="res://Sprites/Map/Props/Bed.png" id="13_gwww0"]
-[ext_resource type="AudioStream" uid="uid://cmcalaveueyy2" path="res://Audio/SFX/stunned_02-99826.mp3" id="14_8d3ub"]
+[ext_resource type="AudioStream" uid="uid://duxtnjugda3ex" path="res://Audio/SFX/Guard Suprised.wav" id="13_xxai0"]
 [ext_resource type="PackedScene" uid="uid://bntwb8jw80fs7" path="res://Scenes/Objects/canteen_table.tscn" id="15_ruab0"]
 [ext_resource type="Texture2D" uid="uid://pehextc7h780" path="res://Sprites/Map/Props/Erdogan.png" id="15_weodf"]
 [ext_resource type="AudioStream" uid="uid://c304pdhemwrhp" path="res://Audio/SFX/Footsteps_Player/Footstep 1.wav" id="17_5avos"]
@@ -187,7 +187,8 @@ scale = Vector2(0.625, 0.625)
 texture = ExtResource("12_c47n5")
 
 [node name="GuardAlert" type="AudioStreamPlayer2D" parent="Stuff"]
-stream = ExtResource("14_8d3ub")
+stream = ExtResource("13_xxai0")
+volume_db = 6.624
 
 [node name="HatPickup" parent="Stuff" instance=ExtResource("12_vig5d")]
 position = Vector2(-1347, -592)

@@ -27,168 +27,168 @@ var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 @onready var idle_timer: Timer = Timer.new()
 
 enum State {
-	MOVE,
-	IDLE
+    MOVE,
+    IDLE
 }
 var current_state: State = State.IDLE
 var target_position: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
-	rng.randomize()
+    rng.randomize()
 
-	# Add Timers to the scene tree
-	add_child(movement_timer)
-	add_child(idle_timer)
+    # Add Timers to the scene tree
+    add_child(movement_timer)
+    add_child(idle_timer)
 
-	# Configure Timers
-	movement_timer.one_shot = true
-	movement_timer.connect("timeout", Callable(self, "_on_movement_timeout"))
+    # Configure Timers
+    movement_timer.one_shot = true
+    movement_timer.connect("timeout", Callable(self, "_on_movement_timeout"))
 
-	idle_timer.one_shot = true
-	idle_timer.connect("timeout", Callable(self, "_on_idle_timeout"))
+    idle_timer.one_shot = true
+    idle_timer.connect("timeout", Callable(self, "_on_idle_timeout"))
 
-	# Randomly start moving or idling
-	if rng.randi_range(0, 1) == 0:
-		_start_moving(true)
-	else:
-		_start_idling(true)
+    # Randomly start moving or idling
+    if rng.randi_range(0, 1) == 0:
+        _start_moving(true)
+    else:
+        _start_idling(true)
 
 # ------------------------------------------------------
 # DETECTION / CHASE LOGIC
 # ------------------------------------------------------
 func _on_detection_area_body_entered(body: Node2D) -> void:
-	if body is CharacterBody2D:
-		player = body
-		if player.has_method("has_pickup_item"):  # Ensure the method exists to prevent runtime errors
-			player_has_item = player.has_pickup_item()
-			if player_has_item:
-				print("Player has item. Using short sus time:", sus_time)
-				call_deferred("start_chase")
-				
-				# Use the full node path to access GuardAlert
-				var guard_alert = get_node("/root/Game/Stuff/GuardAlert")
-				if guard_alert:
-					guard_alert.play()  # Play the GuardAlert sound
-				else:
-					print("GuardAlert node not found!")
-			else:
-				print("Yeah no this weirdo looks perfectly normal, no weird bulges or anything 😏")
-		else:
-			print("The detected body does not have the method 'has_pickup_item'.")
+    if body is CharacterBody2D:
+        player = body
+        if player.has_method("has_pickup_item"):  # Ensure the method exists to prevent runtime errors
+            player_has_item = player.has_pickup_item()
+            if player_has_item:
+                print("Player has item. Using short sus time:", sus_time)
+                call_deferred("start_chase")
+                
+                # Use the full node path to access GuardAlert
+                var guard_alert = get_node("/root/Game/Stuff/GuardAlert")
+                if guard_alert:
+                    guard_alert.play()  # Play the GuardAlert sound
+                else:
+                    print("GuardAlert node not found!")
+            else:
+                print("Yeah no this weirdo looks perfectly normal, no weird bulges or anything 😏")
+        else:
+            print("The detected body does not have the method 'has_pickup_item'.")
 
 
 
 
 func _on_max_agro_range_body_exited(body: Node2D) -> void:
-	if body is CharacterBody2D:
-		print("<color=green>exited range</color>")
-		player = null
-		player_chase = false
+    if body is CharacterBody2D:
+        print("<color=green>exited range</color>")
+        player = null
+        player_chase = false
 
 func start_chase() -> void:
-	var timer = get_tree().create_timer(sus_time)
-	await timer.timeout
-	if player != null:
-		player_chase = true
+    var timer = get_tree().create_timer(sus_time)
+    await timer.timeout
+    if player != null:
+        player_chase = true
 
 # ------------------------------------------------------
 # PROCESS AND PHYSICS
 # ------------------------------------------------------
 func _process(delta: float) -> void:
-	handle_animation()
-	if player_chase and player_in_hit_range:
-		call_deferred("_change_scene")
+    handle_animation()
+    if player_chase and player_in_hit_range:
+        call_deferred("_change_scene")
 
 func _physics_process(delta: float) -> void:
-	if player_chase and player:
-		# Calculate the direction towards the player
-		var direction = (player.position - position).normalized()
-		
-		# Attempt to move while detecting and resolving collisions
-		velocity = direction * speed  # `velocity` is a built-in property of `CharacterBody2D`
-		move_and_slide()  # Handles collisions automatically
-	else:
-		# Random wandering logic with collision detection
-		match current_state:
-			State.MOVE:
-				var direction = (target_position - position).normalized()
-				velocity = direction * speed
-				var collision = move_and_collide(velocity * delta)  # Detect collisions
-				
-				if collision:
-					pick_random_position()  # Recalculate target if collision occurs
-				else:
-					position += velocity * delta
-				
-				if position.distance_to(target_position) < 5:
-					_start_idling()
-			State.IDLE:
-				pass
+    if player_chase and player:
+        # Calculate the direction towards the player
+        var direction = (player.position - position).normalized()
+        
+        # Attempt to move while detecting and resolving collisions
+        velocity = direction * speed  # `velocity` is a built-in property of `CharacterBody2D`
+        move_and_slide()  # Handles collisions automatically
+    else:
+        # Random wandering logic with collision detection
+        match current_state:
+            State.MOVE:
+                var direction = (target_position - position).normalized()
+                velocity = direction * speed
+                var collision = move_and_collide(velocity * delta)  # Detect collisions
+                
+                if collision:
+                    pick_random_position()  # Recalculate target if collision occurs
+                else:
+                    position += velocity * delta
+                
+                if position.distance_to(target_position) < 5:
+                    _start_idling()
+            State.IDLE:
+                pass
 
 
 # ------------------------------------------------------
 # ANIMATION
 # ------------------------------------------------------
 func handle_animation() -> void:
-	
-	if player_chase and player:
-		
-		animated_sprite.play("Move")
-		animated_sprite.scale.x = 1 if player.position.x > position.x else -1
-	else:
-		
-		if current_state == State.MOVE:
-			animated_sprite.play("Move")
-			animated_sprite.scale.x = 1 if target_position.x > position.x else -1
-		else:
-			animated_sprite.play("Idle")
+    
+    if player_chase and player:
+        
+        animated_sprite.play("Move")
+        animated_sprite.scale.x = 1 if player.position.x > position.x else -1
+    else:
+        
+        if current_state == State.MOVE:
+            animated_sprite.play("Move")
+            animated_sprite.scale.x = 1 if target_position.x > position.x else -1
+        else:
+            animated_sprite.play("Idle")
 
 
 # ------------------------------------------------------
 # HIT AREA & SCENE CHANGE
 # ------------------------------------------------------
 func _on_hit_area_body_entered(body):
-	if body.name == "Player":
-		player_in_hit_range = true
+    if body.name == "Player":
+        player_in_hit_range = true
 
 func _on_hit_area_body_exited(body: Node2D) -> void:
-	player_in_hit_range = false
+    player_in_hit_range = false
 
 func _change_scene():
-	get_tree().change_scene_to_file("res://Scenes/Game/kill_map.tscn")
+    get_tree().change_scene_to_file("res://Scenes/Game/kill_map.tscn")
 
 # ------------------------------------------------------
 # RANDOM MOVEMENT IMPLEMENTATION
 # ------------------------------------------------------
 func _start_moving(initial: bool = false) -> void:
-	current_state = State.MOVE
-	pick_random_position()
-	footsteps_guard.play()
-	
+    current_state = State.MOVE
+    pick_random_position()
+    footsteps_guard.play()
+    
 
-	var move_duration = rng.randf_range(move_duration_min, move_duration_max)
-	movement_timer.wait_time = move_duration
-	movement_timer.start()
+    var move_duration = rng.randf_range(move_duration_min, move_duration_max)
+    movement_timer.wait_time = move_duration
+    movement_timer.start()
 
 func _on_movement_timeout() -> void:
-	_start_idling()
-	footsteps_guard.stop()
-	
+    _start_idling()
+    footsteps_guard.stop()
+    
 
 func _start_idling(initial: bool = false) -> void:
-	current_state = State.IDLE
-	
+    current_state = State.IDLE
+    
 
-	var idle_duration = rng.randf_range(idle_duration_min, idle_duration_max)
-	idle_timer.wait_time = idle_duration
-	idle_timer.start()
+    var idle_duration = rng.randf_range(idle_duration_min, idle_duration_max)
+    idle_timer.wait_time = idle_duration
+    idle_timer.start()
 
 func _on_idle_timeout() -> void:
-	_start_moving()
+    _start_moving()
 
 func pick_random_position() -> void:
-	var rand_offset = Vector2(
-		rng.randi_range(-walk_range, walk_range),
-		rng.randi_range(-walk_range, walk_range)
-	)
-	target_position = position + rand_offset
+    var rand_offset = Vector2(
+        rng.randi_range(-walk_range, walk_range),
+        rng.randi_range(-walk_range, walk_range)
+    )
+    target_position = position + rand_offset
