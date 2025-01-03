@@ -101,32 +101,30 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
     if player_chase and player:
-        # --- CHASE LOGIC (no wall collision detection here) ---
-        position += (player.position - position).normalized() * speed * delta
+        # Calculate the direction towards the player
+        var direction = (player.position - position).normalized()
+        
+        # Attempt to move while detecting and resolving collisions
+        velocity = direction * speed  # `velocity` is a built-in property of `CharacterBody2D`
+        move_and_slide()  # Handles collisions automatically
     else:
-        # --- RANDOM WANDERING with WALL COLLISION DETECTION ---
+        # Random wandering logic with collision detection
         match current_state:
             State.MOVE:
-                
                 var direction = (target_position - position).normalized()
+                velocity = direction * speed
+                var collision = move_and_collide(velocity * delta)  # Detect collisions
                 
-                var motion = direction * speed * delta
-                
-                
-                var collision = move_and_collide(motion)
                 if collision:
-                    
-                    pick_random_position()
+                    pick_random_position()  # Recalculate target if collision occurs
                 else:
-                    
-                    position += motion
-
+                    position += velocity * delta
                 
                 if position.distance_to(target_position) < 5:
                     _start_idling()
             State.IDLE:
-                
                 pass
+
 
 # ------------------------------------------------------
 # ANIMATION

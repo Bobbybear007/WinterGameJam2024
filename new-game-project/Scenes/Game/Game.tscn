@@ -24,7 +24,7 @@
 [ext_resource type="AudioStream" uid="uid://c304pdhemwrhp" path="res://Audio/SFX/Footsteps_Player/Footstep 1.wav" id="17_5avos"]
 [ext_resource type="AudioStream" uid="uid://cp5hx3pdsbgko" path="res://Audio/Music/Mr_Keisters_Prison_Wallet.wav" id="20_i8f8h"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mskil"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_je2u3"]
 texture = ExtResource("1_o2vaq")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -3.1748, -3.02598, -3.07559, -3.1748, 8, -8, 8, -8, -8, 8, -8)
@@ -85,7 +85,7 @@ texture = ExtResource("1_o2vaq")
 1:6/0 = 0
 1:7/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q0e6f"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ekof7"]
 texture = ExtResource("2_n4aak")
 0:0/0 = 0
 1:0/0 = 0
@@ -94,8 +94,8 @@ texture = ExtResource("2_n4aak")
 [sub_resource type="TileSet" id="TileSet_wmjwv"]
 physics_layer_0/collision_layer = 3
 physics_layer_0/collision_mask = 3
-sources/0 = SubResource("TileSetAtlasSource_mskil")
-sources/1 = SubResource("TileSetAtlasSource_q0e6f")
+sources/0 = SubResource("TileSetAtlasSource_je2u3")
+sources/1 = SubResource("TileSetAtlasSource_ekof7")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ohcr"]
 size = Vector2(2, 373)
@@ -214,9 +214,6 @@ position = Vector2(-147, -74)
 [node name="Guard2" parent="Guards" instance=ExtResource("8_sig7y")]
 position = Vector2(-6, -378)
 
-[node name="Guard3" parent="Guards" instance=ExtResource("9_b5te5")]
-position = Vector2(-237, -250)
-
 [node name="Guard4" parent="Guards" instance=ExtResource("8_sig7y")]
 position = Vector2(429, -247)
 
@@ -224,7 +221,7 @@ position = Vector2(429, -247)
 position = Vector2(16, -250)
 
 [node name="Guard6" parent="Guards" instance=ExtResource("8_sig7y")]
-position = Vector2(132, -4)
+position = Vector2(13, -74)
 
 [node name="Guard7" parent="Guards" instance=ExtResource("9_b5te5")]
 position = Vector2(2, 133)

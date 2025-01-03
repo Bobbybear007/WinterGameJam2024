@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://d0cktxgkxgmd3"]
+[gd_scene load_steps=43 format=3 uid="uid://d0cktxgkxgmd3"]
 
 [ext_resource type="Script" path="res://_Scripts/Player/Player.gd" id="1_jh7m0"]
 [ext_resource type="Texture2D" uid="uid://b27axkf8tefyp" path="res://Sprites/Player/PlayerHatSpriteSheet.png" id="2_65e5a"]
@@ -18,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://dhf26ni3fea16" path="res://Audio/SFX/Footsteps_Player/Footsteps_Concrete 12.wav" id="16_5ax00"]
 [ext_resource type="AudioStream" uid="uid://ctabcwmh31jtd" path="res://Audio/SFX/Footsteps_Player/Footsteps_Concrete 13.wav" id="17_jq0ja"]
 [ext_resource type="AudioStream" uid="uid://bggwjlnkhhhda" path="res://Audio/SFX/item_pickup.wav" id="18_2s8ev"]
+[ext_resource type="AudioStream" uid="uid://ton0u4cbvvcg" path="res://Audio/SFX/Item_delivered_alt.wav" id="19_ytnrp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0g2ll"]
 radius = 4.625
@@ -268,3 +269,5 @@ volume_db = 6.0
 bus = &"SFX"
 
 [node name="audio_item_dropoff" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_ytnrp")
+volume_db = 24.0
