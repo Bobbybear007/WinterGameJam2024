@@ -30,9 +30,9 @@
 
 ### **🔧Background**
 
-Most the team 
-
 
 
 Built using Godot 4.3 and coded with GDscript. Created as part of a game jam within a 7 day time limit, focusing on creating an interesting, difficult, but fun game to play.
+
+Most the team are not beginners whe it comes to making games, but all of us have never even opened Godot so we thought it would be a good challenge for us
 
